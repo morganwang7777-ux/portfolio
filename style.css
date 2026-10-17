@@ -444,3 +444,18 @@ td { font-variant-numeric: tabular-nums; }
 @media (max-width: 640px) {
   .t-statement { grid-column: 1 / -1; order: 0; }
 }
+
+/* Extra sections inside a project write-up */
+.d-section { margin-top: 72px; max-width: 1200px; }
+.d-section .d-table-wrap { margin-top: 20px; }
+.d-lede { max-width: 66ch; }
+.d-lede + .d-lede { margin-top: 14px; }
+.d-split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px 48px; align-items: start; }
+.d-figure { background: var(--paper); }
+.d-figure img { width: 100%; }
+.d-figure figcaption { font-size: var(--step-small); padding: 8px 10px; color: var(--muted); background: var(--surface); }
+.d-body-tight { margin-top: 0; }
+.d-list { display: grid; gap: 8px; padding-left: 1.2em; list-style: disc; }
+.t-spec { min-width: 0; max-width: 640px; }
+td a.link { text-decoration-color: rgba(42, 42, 38, 0.35); }
+@media (max-width: 900px) { .d-split { grid-template-columns: 1fr; } }

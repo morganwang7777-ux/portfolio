@@ -228,7 +228,59 @@
       <p><strong>Result:</strong> Reduced simulated output ripple from 45.7 mVpp (v1) to 23.6 mVpp (48.3%, v2) by changing output capacitor ESR from 0.10 to 0.05 Ohm and tuning compensation (1 kOhm / 3.3 nF) at 15 V input and 1 A load.</p>
       <p><strong>PCB:</strong> Designed a 41.4 x 23.6 mm two layer SMD layout in Altium Designer with 25 mil power traces, 10 mil signal traces, a bottom layer GND polygon, and via connected returns. Reported zero violations under the DRC rules.</p>
     </div>
-    <div class="d-table-wrap">
+    <section class="d-section">
+      <h3 class="d-sub">Design specifications</h3>
+      <p class="d-lede">Goal: an asynchronous buck converter that takes 10–15 V in and outputs 5 V at 1 A, using surface mount parts only. Assumes 90% efficiency, tested at 15 V.</p>
+      <div class="d-table-wrap">
+        <table class="t-spec">
+          <tbody>
+            <tr><th scope="row">Input voltage</th><td>10–15 V DC</td></tr>
+            <tr><th scope="row">Output voltage</th><td>5 V DC</td></tr>
+            <tr><th scope="row">Maximum output current</th><td>1 A</td></tr>
+            <tr><th scope="row">Output power</th><td>5 W</td></tr>
+            <tr><th scope="row">Regulator</th><td>LT1375CS8#PBF</td></tr>
+            <tr><th scope="row">Switching frequency</th><td>~500 kHz</td></tr>
+            <tr><th scope="row">PCB</th><td>2-layer SMD, 41.4 × 23.6 mm</td></tr>
+            <tr><th scope="row">Software</th><td>LTspice, Altium Designer</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="d-section d-split">
+      <div>
+        <h3 class="d-sub">Hand calculations</h3>
+        <p class="d-lede">Calculations follow <a class="link" href="https://www.ti.com/lit/an/slva477c/slva477c.pdf">TI application note SLVA477C</a> and the <a class="link" href="https://www.analog.com/media/en/technical-documentation/data-sheets/13756fd.pdf">LT1375 datasheet</a>, at V<sub>IN(max)</sub> = 15 V and 90% efficiency.</p>
+        <div class="d-table-wrap">
+          <table>
+            <thead><tr><th scope="col">Quantity</th><th scope="col">Working</th><th scope="col">Result</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Duty cycle</th><td>5 V / (15 V × 0.9)</td><td>37%</td></tr>
+              <tr><th scope="row">Inductor range</th><td>From datasheet</td><td>3–20 µH</td></tr>
+              <tr><th scope="row">Inductor ripple current</th><td>(15 V − 5 V) × 0.37 / (440 kHz × 18 µH)</td><td>0.468 A</td></tr>
+              <tr><th scope="row">Max output the IC supports</th><td>1.50 A − 0.468 A / 2</td><td>1.266 A</td></tr>
+              <tr><th scope="row">Peak switch current</th><td>1 A + 0.468 A / 2</td><td>1.234 A</td></tr>
+              <tr><th scope="row">Diode current</th><td>1 A × (1 − 0.37)</td><td>0.63 A</td></tr>
+              <tr><th scope="row">Diode power</th><td>0.63 A × 0.5 V</td><td>0.315 W</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <figure class="d-figure"><img src="images/full/buck-calcs.webp" width="918" height="1313" alt="Handwritten calculations: duty cycle, inductor ripple current, maximum output current, peak switch current and diode current" loading="lazy"><figcaption>Original hand calculations</figcaption></figure>
+    </section>
+
+    <section class="d-section d-split">
+      <div>
+        <h3 class="d-sub">From v1 to v2</h3>
+        <p class="d-lede">V1 used a 15 uH inductor, a 100 uF output capacitor with 0.10 ohm modeled ESR, and a 3.3 nF VC compensation capacitor.</p>
+        <p class="d-lede">For V2, I decreased R4 from 0.1 Ω to 0.05 Ω to reduce the output capacitor's ESR. Since the capacitor handles changing current when the buck converter switches, having less resistance means less voltage fluctuation and therefore lower ripple. I also added a 1 kΩ resistor to the compensation circuit to help control how the IC responds to voltage changes and prevent oscillations.</p>
+        <p class="d-lede">The independent effect of each modification has not yet been fully isolated.</p>
+      </div>
+      <figure class="d-figure"><img src="images/full/buck-percent.webp" width="669" height="410" alt="Percent decrease calculations: 48.3% versus v1 and 32.7% versus the reference" loading="lazy"><figcaption>Ripple reduction, worked out</figcaption></figure>
+    </section>
+
+    <section class="d-section">
+      <div class="d-table-wrap">
       <table>
         <caption>Simulated output, 15 V in, 5 Ω load, 8–10 ms steady state</caption>
         <thead><tr><th scope="col">Measurement</th><th scope="col">LT1375 reference</th><th scope="col">v1</th><th scope="col">v2</th></tr></thead>
@@ -240,6 +292,49 @@
         </tbody>
       </table>
     </div>
+    </section>
+
+    <section class="d-section">
+      <h3 class="d-sub">Parts list</h3>
+      <div class="d-table-wrap">
+        <table>
+          <thead><tr><th scope="col">Part</th><th scope="col">Value</th><th scope="col">Part number</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Buck regulator</th><td>LT1375, 1.5 A, 500 kHz</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/analog-devices-inc/LT1375CS8-PBF/891548">LT1375CS8#PBF</a></td></tr>
+            <tr><th scope="row">Inductor</th><td>15 µH</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/bourns-inc/SRP1038A-150M/4876660">Bourns SRP1038A-150M</a></td></tr>
+            <tr><th scope="row">Schottky diode</th><td>Freewheeling</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/panjit-international-inc/SS2040FL-R1-00001/14660034">Panjit SS2040FL-R1-00001</a></td></tr>
+            <tr><th scope="row">Boost diode</th><td>1N4148W</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/diodes-incorporated/1N4148W-7-F/814371">Diodes Inc. 1N4148W-7-F</a></td></tr>
+            <tr><th scope="row">Input capacitor</th><td>22 µF</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/kemet/C1210C226M3RACTU/3317484">KEMET C1210C226M3RACTU</a></td></tr>
+            <tr><th scope="row">Output capacitor</th><td>100 µF</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/kemet/C1210C107M4PACTU/4437452">KEMET C1210C107M4PACTU</a></td></tr>
+            <tr><th scope="row">Boost capacitor</th><td>0.1 µF</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/kemet/C0603C104K5RACTU/1465594">KEMET C0603C104K5RACTU</a></td></tr>
+            <tr><th scope="row">Feedback resistor (top)</th><td>5.36 kΩ</td><td><a class="link" href="https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0603FT5K36/1714091">Stackpole RMCF0603FT5K36</a></td></tr>
+            <tr><th scope="row">Feedback resistor (bottom)</th><td>4.99 kΩ</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/stackpole-electronics-inc/RMCF0603FT4K99/1761322">Stackpole RMCF0603FT4K99</a></td></tr>
+            <tr><th scope="row">Compensation resistor</th><td>1 kΩ</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/stackpole-electronics-inc/RMCF0603FT1K00/1761077">Stackpole RMCF0603FT1K00</a></td></tr>
+            <tr><th scope="row">Compensation capacitor</th><td>3.3 nF</td><td><a class="link" href="https://www.digikey.com/en/products/detail/kemet/C0603C332K5RACTU/411085">KEMET C0603C332K5RACTU</a></td></tr>
+            <tr><th scope="row">Output capacitor series resistor</th><td>0.05 Ω</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/vishay-dale/WSL0603R0500FEA18/1882601">Vishay Dale WSL0603R0500FEA18</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="d-section">
+      <h3 class="d-sub">PCB layout and design rule check</h3>
+      <div class="d-body d-body-tight">
+        <p><strong>Component placement:</strong> Grouped the LT1375, input capacitor, Schottky diode, BOOST circuitry, and inductor to reduce switching-path lengths.</p>
+        <p><strong>Power routing:</strong> The <a class="link" href="https://www.digikey.ca/en/resources/conversion-calculators/conversion-calculator-pcb-trace-width">DigiKey trace width calculator</a> gives a 20.7 mil minimum for 1.5 A on an external 1 oz layer (10 °C rise, 40 °C ambient), so major power connections use 25 mil traces. Feedback and compensation signals use about 10 mil.</p>
+        <p><strong>Ground plane:</strong> Created a Bottom Layer GND polygon pour and connected ground pads using short traces and vias.</p>
+        <p><strong>DRC:</strong> 0 violations across 14 Altium rules, including 1 mil clearance, short-circuit, un-routed nets, 10–30 mil trace width, 10 mil hole-to-hole clearance and 6 mil solder mask sliver.</p>
+      </div>
+    </section>
+
+    <section class="d-section">
+      <h3 class="d-sub">Next steps</h3>
+      <ul class="d-list">
+        <li>Validate realistic capacitor and inductor characteristics across operating conditions.</li>
+        <li>Manufacture, assemble, and electrically test the PCB.</li>
+      </ul>
+    </section>
+
     <div class="d-gallery"><figure><img src="images/full/buck-3d-top.webp" width="907" height="536" alt="Buck converter, v2 board" loading="lazy"><figcaption>Buck converter, v2 board</figcaption></figure>
 <figure><img src="images/full/buck-3d-bottom.webp" width="1017" height="565" alt="Buck converter, underside" loading="lazy"><figcaption>Buck converter, underside</figcaption></figure>
 <figure><img src="images/full/buck-2d-top.webp" width="917" height="527" alt="Buck, top copper" loading="lazy"><figcaption>Buck, top copper</figcaption></figure>
