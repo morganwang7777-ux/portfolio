@@ -544,3 +544,5 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
   .row-val { grid-column: 2; }
 }
 .group .chips li.chip { display: inline-flex; grid-template-columns: none; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px; font-size: var(--step-small); line-height: 1.2; }
+.panel-line { display: flex; align-items: center; gap: 14px; }
+.uw-crest { width: 35px; height: 40px; flex: none; }
