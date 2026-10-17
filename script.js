@@ -167,3 +167,44 @@ document.querySelectorAll('.viewer-btn').forEach((btn) => {
     mv.cameraTarget = 'auto auto auto';
   });
 });
+
+// Click a photo in a write-up to see it full size; arrows step through that project's photos
+(() => {
+  const lb = document.getElementById('lightbox');
+  if (!lb || typeof lb.showModal !== 'function') return;
+  const img = document.getElementById('lb-img');
+  const cap = document.getElementById('lb-cap');
+  const prev = lb.querySelector('.lb-prev');
+  const next = lb.querySelector('.lb-next');
+  const sel = '.d-hero img, .d-figure img, .d-gallery img, .list-figure img';
+  let set = [];
+  let i = 0;
+  const show = () => {
+    const el = set[i];
+    img.src = el.currentSrc || el.src;
+    img.alt = el.alt;
+    const fc = el.closest('figure') && el.closest('figure').querySelector('figcaption');
+    cap.textContent = fc ? fc.textContent : el.alt;
+    prev.hidden = next.hidden = set.length < 2;
+  };
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest(sel);
+    if (!el) return;
+    const scope = el.closest('.sheet-dialog') || el.closest('figure');
+    set = [...scope.querySelectorAll(sel)];
+    i = set.indexOf(el);
+    show();
+    lb.showModal();
+  });
+  const step = (d) => { i = (i + d + set.length) % set.length; show(); };
+  prev.addEventListener('click', (e) => { e.stopPropagation(); step(-1); });
+  next.addEventListener('click', (e) => { e.stopPropagation(); step(1); });
+  lb.querySelector('.lb-close').addEventListener('click', () => lb.close());
+  lb.addEventListener('click', (e) => { if (e.target === lb || e.target === img || e.target.classList.contains('lb-figure')) lb.close(); });
+  lb.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+  // Closing the photo must not close the project underneath
+  lb.addEventListener('cancel', (e) => e.stopPropagation());
+})();

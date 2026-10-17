@@ -60,9 +60,9 @@
   <div class="work-grid">
   <nav class="rail" aria-label="Projects by name">
     <ul>
-      <li><a class="link" href="#p-imd">IMD Test Box</a></li>
-      <li><a class="link" href="#p-buck">5 V DC-DC Buck Converter</a></li>
-      <li><a class="link" href="#p-metronome">Morgan's Metronome v1.0</a></li>
+      <li><a class="rail-link" href="#p-imd"><span class="rail-icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 8h9M8 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span class="rail-text">IMD Test Box</span></a></li>
+      <li><a class="rail-link" href="#p-buck"><span class="rail-icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 8h9M8 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span class="rail-text">5 V DC-DC Buck Converter</span></a></li>
+      <li><a class="rail-link" href="#p-metronome"><span class="rail-icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 8h9M8 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span class="rail-text">Morgan's Metronome v1.0</span></a></li>
     </ul>
   </nav>
   <div class="strips">
@@ -177,11 +177,12 @@
     <figure class="d-hero"><img src="images/full/imd-board.webp" width="632" height="752" alt="IMD test box PCB, top"></figure>
     <div class="d-meta"><p class="meta-when">Sep – Oct 2026</p><ul class="chips" aria-label="Tools and teams"><li class="chip"><img class="wide" src="images/logos/uwfe.webp" width="75" height="20" alt="">UW Formula Electric</li><li class="chip"><img src="images/logos/altium.svg" width="20" height="20" alt="">Altium Designer</li><li class="chip">Safety Analysis</li><li class="chip">High Voltage Electronics</li></ul></div>
     <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/IMD-Test-Box-UWFE">View on GitHub</a></p>
-    <div class="d-body">
-      <p><strong>What:</strong> Developing a passive insulation monitoring fault injection test box for the Formula Electric vehicle, interfacing through the HV+/HV- Tractive System Measuring Points (TSMP) and chassis reference for controlled test conditions.</p>
-      <p><strong>How:</strong> Created Altium Designer schematics and resistor networks. Accounted for 15 kOhm TSMP protection resistance and evaluated a 588 V tractive system against the FSAE 250 Ohm/V insulation criterion.</p>
-      <p><strong>Result:</strong> Calculated a 147 kOhm critical insulation threshold and design target equivalent fault resistances of 285, 485, and 75 kOhm. Planned selection states include PASS, WARNING, TECH FAIL, and a hard short scenario. The design provides a repeatable method to investigate firmware reported warnings and vehicle shutdown responses.</p>
-      <p><strong>Next steps:</strong> Physical testing on the car after the PCB has been printed.</p>
+    <ul class="stats"><li><span class="stat-n">588 V</span><span class="stat-l">tractive system</span></li><li><span class="stat-n">147 kΩ</span><span class="stat-l">critical insulation threshold</span></li><li><span class="stat-n">4</span><span class="stat-l">fault states: pass, warning, tech fail, hard short</span></li><li><span class="stat-n">30</span><span class="stat-l">resistors in three chains</span></li></ul>
+    <div class="d-body wh-grid">
+      <div class="wh"><p class="wh-label">What</p><p class="wh-text">Developing a passive insulation monitoring fault injection test box for the Formula Electric vehicle, interfacing through the HV+/HV- Tractive System Measuring Points (TSMP) and chassis reference for controlled test conditions.</p></div>
+      <div class="wh"><p class="wh-label">How</p><p class="wh-text">Created Altium Designer schematics and resistor networks. Accounted for <strong class="num">15 kOhm</strong> TSMP protection resistance and evaluated a <strong class="num">588 V</strong> tractive system against the FSAE <strong class="num">250 Ohm/V</strong> insulation criterion.</p></div>
+      <div class="wh"><p class="wh-label">Result</p><p class="wh-text">Calculated a <strong class="num">147 kOhm</strong> critical insulation threshold and design target equivalent fault resistances of 285, 485, and <strong class="num">75 kOhm</strong>. Planned selection states include PASS, WARNING, TECH FAIL, and a hard short scenario. The design provides a repeatable method to investigate firmware reported warnings and vehicle shutdown responses.</p></div>
+      <div class="wh"><p class="wh-label">Next steps</p><p class="wh-text">Physical testing on the car after the PCB has been printed.</p></div>
     </div>
     <section class="d-section">
       <h3 class="d-sub">3D board</h3>
@@ -281,11 +282,12 @@
     <figure class="d-hero"><img src="images/full/buck-3d-top.webp" width="907" height="536" alt="5 V buck converter PCB, top"></figure>
     <div class="d-meta"><p class="meta-when">Design task · Sep – Oct 2026</p><ul class="chips" aria-label="Tools and teams"><li class="chip"><img src="images/logos/midsun.webp" width="20" height="20" alt="">UW Midnight Sun</li><li class="chip"><img src="images/logos/ltspice.svg" width="20" height="20" alt="">LTspice</li><li class="chip"><img src="images/logos/altium.svg" width="20" height="20" alt="">Altium Designer</li><li class="chip"><img src="images/logos/digikey.svg" width="20" height="20" alt="">DigiKey</li><li class="chip">PCB Design</li></ul></div>
     <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/5V-DC-DC-Buck-Converter">View on GitHub</a></p>
-    <div class="d-body">
-      <p><strong>What:</strong> Designed a compact 10-15 V input to regulated 5 V, 1 A switching buck converter using the LT1375 for a low voltage power supply design task.</p>
-      <p><strong>How:</strong> Selected a 15 uH inductor, Schottky freewheeling diode, input/output capacitors, and resistive feedback components using datasheets and calculations. Simulated switching behavior and component trade offs in LTspice.</p>
-      <p><strong>Result:</strong> Reduced simulated output ripple from 45.7 mVpp (v1) to 23.6 mVpp (48.3%, v2) by changing output capacitor ESR from 0.10 to 0.05 Ohm and tuning compensation (1 kOhm / 3.3 nF) at 15 V input and 1 A load.</p>
-      <p><strong>PCB:</strong> Designed a 41.4 x 23.6 mm two layer SMD layout in Altium Designer with 25 mil power traces, 10 mil signal traces, a bottom layer GND polygon, and via connected returns. Reported zero violations under the DRC rules.</p>
+    <ul class="stats"><li><span class="stat-n">23.6 mVpp</span><span class="stat-l">output ripple (v2)</span></li><li><span class="stat-n">48.3%</span><span class="stat-l">less ripple than v1</span></li><li><span class="stat-n">41.4 × 23.6 mm</span><span class="stat-l">two layer SMD board</span></li><li><span class="stat-n">0</span><span class="stat-l">DRC violations</span></li></ul>
+    <div class="d-body wh-grid">
+      <div class="wh"><p class="wh-label">What</p><p class="wh-text">Designed a compact <strong class="num">10-15 V</strong> input to regulated <strong class="num">5 V</strong>, <strong class="num">1 A</strong> switching buck converter using the LT1375 for a low voltage power supply design task.</p></div>
+      <div class="wh"><p class="wh-label">How</p><p class="wh-text">Selected a <strong class="num">15 uH</strong> inductor, Schottky freewheeling diode, input/output capacitors, and resistive feedback components using datasheets and calculations. Simulated switching behavior and component trade offs in LTspice.</p></div>
+      <div class="wh"><p class="wh-label">Result</p><p class="wh-text">Reduced simulated output ripple from <strong class="num">45.7 mVpp</strong> (v1) to <strong class="num">23.6 mVpp</strong> (<strong class="num">48.3%</strong>, v2) by changing output capacitor ESR from <strong class="num">0.10 to 0.05 Ohm</strong> and tuning compensation (<strong class="num">1 kOhm</strong> / <strong class="num">3.3 nF</strong>) at <strong class="num">15 V</strong> input and <strong class="num">1 A</strong> load.</p></div>
+      <div class="wh"><p class="wh-label">PCB</p><p class="wh-text">Designed a <strong class="num">41.4 x 23.6 mm</strong> two layer SMD layout in Altium Designer with <strong class="num">25 mil</strong> power traces, <strong class="num">10 mil</strong> signal traces, a bottom layer GND polygon, and via connected returns. Reported zero violations under the DRC rules.</p></div>
     </div>
     <section class="d-section">
       <h3 class="d-sub">3D board</h3>
@@ -443,10 +445,11 @@
     <figure class="d-hero"><img src="images/full/met-3d-top.webp" width="1117" height="710" alt="Metronome Arduino shield PCB, 3D render"></figure>
     <div class="d-meta"><p class="meta-when">Personal project · Jul – Sep 2026</p><ul class="chips" aria-label="Tools and teams"><li class="chip"><img src="images/logos/arduino.svg" width="20" height="20" alt="">Arduino UNO</li><li class="chip"><img src="images/logos/cplusplus.svg" width="20" height="20" alt="">C++</li><li class="chip"><img src="images/logos/kicad.svg" width="20" height="20" alt="">KiCad</li><li class="chip">PCB Design</li><li class="chip">Embedded Systems</li></ul></div>
     <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/Morgan-s-Metronome-v1.0">View on GitHub</a></p>
-    <div class="d-body">
-      <p><strong>What:</strong> Built an Arduino UNO based digital metronome after finding myself getting distracted using my phone while practicing saxophone. Designed it to help maintain a consistent rhythm, featuring adjustable 40–180 BPM tempo, selectable beat patterns, pushbutton controls, a potentiometer, and a 16×2 LCD.</p>
-      <p><strong>How:</strong> Programmed the timing and user interface in C++. Used millis() based non blocking timing to schedule beats while keeping tempo and button controls responsive. Prototyped and debugged the circuit on a breadboard before designing a custom Arduino UNO shield PCB in KiCad to integrate the components.</p>
-      <p><strong>Result:</strong> Developed a functional metronome with an audible buzzer and visual LED beat indicators, adjustable tempo, and selectable rhythm patterns. PCB is on its way!</p>
+    <ul class="stats"><li><span class="stat-n">40–180</span><span class="stat-l">BPM, in steps of 5</span></li><li><span class="stat-n">2–7</span><span class="stat-l">beat patterns</span></li><li><span class="stat-n">16×2</span><span class="stat-l">LCD display</span></li><li><span class="stat-n">2 layer</span><span class="stat-l">Arduino UNO shield in KiCad</span></li></ul>
+    <div class="d-body wh-grid">
+      <div class="wh"><p class="wh-label">What</p><p class="wh-text">Built an Arduino UNO based digital metronome after finding myself getting distracted using my phone while practicing saxophone. Designed it to help maintain a consistent rhythm, featuring adjustable <strong class="num">40–180 BPM</strong> tempo, selectable beat patterns, pushbutton controls, a potentiometer, and a 16×2 LCD.</p></div>
+      <div class="wh"><p class="wh-label">How</p><p class="wh-text">Programmed the timing and user interface in C++. Used millis() based non blocking timing to schedule beats while keeping tempo and button controls responsive. Prototyped and debugged the circuit on a breadboard before designing a custom Arduino UNO shield PCB in KiCad to integrate the components.</p></div>
+      <div class="wh"><p class="wh-label">Result</p><p class="wh-text">Developed a functional metronome with an audible buzzer and visual LED beat indicators, adjustable tempo, and selectable rhythm patterns. PCB is on its way!</p></div>
     </div>
     <div class="d-metro">
       <h3 class="d-sub">Try it in the browser</h3>
@@ -590,6 +593,13 @@
 </dialog>
 
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged photo">
+  <figure class="lb-figure"><img id="lb-img" src="" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button class="lb-btn lb-close" type="button" aria-label="Close">Close</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous photo">←</button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next photo">→</button>
+</dialog>
+
 <script src="script.js"></script>
 </body>
 </html>
