@@ -1,17 +1,17 @@
 /* Morgan Wang — portfolio. Direction: the contact sheet, sand and moss. */
 
 :root {
-  --bg: #ddd6c6;
-  --surface: #d2cab8;
-  --surface-2: #c7bea9;
-  --ink: #2a2a26;
-  --muted: #59574e;
-  --accent: #4f6238;
-  --accent-strong: #3e4e2b;
+  --bg: #f5f5f2;
+  --surface: #e8e8e3;
+  --surface-2: #dadad3;
+  --ink: #151515;
+  --muted: #55554f;
+  --accent: #c2410c;
+  --accent-strong: #9a3412;
   --accent-ink: #ffffff;
-  --field-1: #3f5a2a;
+  --field-1: #1f4d2b;
   --field-1-ink: #ffffff;
-  --paper: #f6f3ec;
+  --paper: #ffffff;
 
   --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
   --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
@@ -136,7 +136,7 @@ button, input, textarea { font: inherit; color: inherit; }
 .panel-line { margin-top: 18px; font-size: var(--step-body); line-height: 1.35; max-width: 32ch; }
 .panel .button { margin-top: 28px; }
 .panel-links { margin-top: auto; padding-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: var(--step-body); }
-.panel-links a { color: var(--bg); text-decoration-color: rgba(221, 214, 198, 0.4); }
+.panel-links a { color: var(--bg); text-decoration-color: rgba(255, 255, 255, 0.4); }
 
 /* ---------- Sections ---------- */
 .section { padding: var(--section-pad) var(--m); }
@@ -171,7 +171,7 @@ button, input, textarea { font: inherit; color: inherit; }
 
 /* ---------- Experience ---------- */
 .list {
-  --muted: #4b493f;
+  --muted: #4a4a45;
   background: var(--surface);
   display: grid; grid-template-columns: minmax(0, 640px) minmax(0, 1fr); gap: 0 6vw; align-items: start;
 }
@@ -275,7 +275,7 @@ button, input, textarea { font: inherit; color: inherit; }
   margin: 0; padding: 0; border: 0;
   background: var(--bg); color: var(--ink);
 }
-.sheet-dialog::backdrop { background: rgba(42, 42, 38, 0.6); }
+.sheet-dialog::backdrop { background: rgba(21, 21, 21, 0.6); }
 .d-inner { padding: 24px var(--m) 80px; max-width: 1440px; margin: 0 auto; }
 .d-head {
   position: sticky; top: 0; z-index: 2; background: var(--bg);
@@ -457,7 +457,7 @@ td { font-variant-numeric: tabular-nums; }
 .d-body-tight { margin-top: 0; }
 .d-list { display: grid; gap: 8px; padding-left: 1.2em; list-style: disc; }
 .t-spec { min-width: 0; max-width: 640px; }
-td a.link { text-decoration-color: rgba(42, 42, 38, 0.35); }
+td a.link { text-decoration-color: rgba(21, 21, 21, 0.35); }
 @media (max-width: 900px) { .d-split { grid-template-columns: 1fr; } }
 
 /* Paired figures, code and multi-column lists inside write-ups */
@@ -522,8 +522,8 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
 }
 .f-name { font-size: var(--step-lead); font-weight: 500; letter-spacing: -0.01em; }
 .f-links { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-self: end; font-size: var(--step-body); }
-.f-links a, .f-legal a { color: var(--bg); text-decoration-color: rgba(221, 214, 198, 0.4); }
-.f-legal { grid-column: 1 / -1; font-size: var(--step-small); color: #b9b2a2; }
+.f-links a, .f-legal a { color: var(--bg); text-decoration-color: rgba(255, 255, 255, 0.4); }
+.f-legal { grid-column: 1 / -1; font-size: var(--step-small); color: #a6a6a0; }
 .contact { padding-top: var(--section-pad); }
 .contact-help a { color: var(--field-1-ink); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.5); }
 @media (max-width: 640px) {
@@ -535,3 +535,11 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
 .f-info { margin-top: 6px; font-size: var(--step-body); }
 .footer { align-items: start; }
 .footer .seeking { margin-top: 14px; }
+
+/* Colour scheme: light contact section, orange actions, chips on the grey surface */
+.contact { background: var(--surface); color: var(--ink); }
+.contact-help a { color: var(--ink); text-decoration-color: rgba(21, 21, 21, 0.4); }
+.field input:focus, .field textarea:focus { outline-color: var(--accent); }
+.send { background: var(--accent); color: var(--accent-ink); }
+@media (hover: hover) and (pointer: fine) { .send:hover { background: var(--accent-strong); } }
+.chip { background: var(--surface); }
