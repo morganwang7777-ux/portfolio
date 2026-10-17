@@ -672,3 +672,20 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
 /* Test: no highlight boxes, whole text in the heavier weight */
 .wh-text { font-weight: 500; color: var(--ink); }
 .wh-text .num { background: none; padding: 0; white-space: normal; }
+
+/* Opening card now carries the About text */
+.hero { --panel-top: 10svh; }
+.panel {
+  left: calc(var(--m) + 1.5 * (var(--colw) + var(--gap)));
+  width: calc(3 * var(--colw) + 2 * var(--gap));
+  min-height: 0;
+}
+.panel-about { margin-top: 16px; font-size: var(--step-body); line-height: 1.5; max-width: 60ch; color: var(--bg); }
+.panel-about + .panel-about { margin-top: 10px; }
+@media (max-width: 900px) {
+  .panel { left: var(--m); width: calc(100vw - 2 * var(--m)); }
+}
+@media (max-width: 640px) {
+  .panel { left: auto; width: auto; }
+  .hero { min-height: 720px; }
+}
