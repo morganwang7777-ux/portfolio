@@ -110,13 +110,13 @@ button, input, textarea { font: inherit; color: inherit; }
   .frame:hover img { transform: scale(1.04); }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .col-track { animation: drift-up 90s linear infinite; }
+  .col-track { animation: drift-up 240s linear infinite; }
   .c2 .col-track, .c4 .col-track, .c6 .col-track { animation-name: drift-down; }
-  .c2 .col-track { animation-duration: 110s; }
-  .c3 .col-track { animation-duration: 100s; }
-  .c4 .col-track { animation-duration: 95s; }
-  .c5 .col-track { animation-duration: 120s; }
-  .c6 .col-track { animation-duration: 105s; }
+  .c2 .col-track { animation-duration: 290s; }
+  .c3 .col-track { animation-duration: 260s; }
+  .c4 .col-track { animation-duration: 250s; }
+  .c5 .col-track { animation-duration: 310s; }
+  .c6 .col-track { animation-duration: 270s; }
   .col:hover .col-track { animation-play-state: paused; }
 }
 @keyframes drift-up { from { transform: translateY(0); } to { transform: translateY(-50%); } }
@@ -549,3 +549,60 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
 
 /* Paper grain over the flat colours */
 body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("images/grain.png"); background-size: 240px 240px; }
+
+/* Menu bar pinned to the top */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  height: 56px; padding: 0 var(--m);
+  background-color: var(--bg); background-image: url("images/grain.png"); background-size: 240px 240px;
+}
+.topbar-name { font-size: var(--step-body); font-weight: 500; text-decoration: none; letter-spacing: -0.01em; }
+.topbar-links { display: flex; align-items: center; gap: 4px; }
+.topbar-links a {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 12px;
+  font-size: var(--step-small); font-weight: 500; text-decoration: none;
+  transition: background-color var(--t-hover) ease;
+}
+.topbar-links a:hover { background: var(--surface); }
+.topbar-links .topbar-cta { background: var(--accent); color: var(--accent-ink); margin-left: 6px; }
+.topbar-links .topbar-cta:hover { background: var(--accent-strong); }
+.topbar-menu { display: none; }
+.hero { margin-top: 56px; height: calc(100svh - 56px); }
+.section, .project { scroll-margin-top: 72px; }
+
+/* Image wall is decoration only */
+.frame { cursor: default; }
+
+/* Folded design details in each write-up */
+.d-more { margin-top: 72px; max-width: 1200px; }
+.d-more summary {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px;
+  padding: 20px 24px; cursor: pointer; list-style: none;
+  background: var(--surface); transition: background-color var(--t-hover) ease;
+}
+.d-more summary::-webkit-details-marker { display: none; }
+.d-more summary::before { content: "+"; font-size: var(--step-lead); font-weight: 500; line-height: 1; width: 1ch; }
+.d-more[open] summary::before { content: "−"; }
+.d-more summary:hover { background: var(--surface-2); }
+.d-more summary > span:first-of-type { font-size: var(--step-lead); font-weight: 500; }
+.d-more-note { color: var(--muted); font-size: var(--step-small); }
+.d-more-body > .d-section:first-child { margin-top: 40px; }
+.d-end { margin-top: 56px; }
+
+@media (max-width: 640px) {
+  .hero { margin-top: 56px; height: auto; }
+  .topbar-menu {
+    display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px;
+    border: 0; background: var(--ink); color: var(--bg); font-weight: 500; font-size: var(--step-small); cursor: pointer;
+  }
+  .topbar-links {
+    display: none; position: absolute; top: 56px; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--m) 16px;
+    background: var(--bg);
+  }
+  .topbar-links.is-open { display: flex; }
+  .topbar-links a { min-height: 48px; font-size: var(--step-body); }
+  .topbar-links .topbar-cta { margin: 8px 0 0; justify-content: center; }
+  .d-more summary { padding: 16px; }
+}

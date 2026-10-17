@@ -16,13 +16,17 @@ if ('IntersectionObserver' in window) {
   watched.forEach((el) => el.classList.add('is-in'));
 }
 
-// Project write-ups open in a full-screen dialog
-const openProject = (id) => {
+// Project write-ups open in a full-screen dialog. Each one gets its own history
+// entry, so the browser's Back button closes it instead of leaving the site.
+const projects = ['imd', 'buck', 'metronome'];
+let openId = null;
+const openProject = (id, push = true) => {
   const d = document.getElementById('d-' + id);
   if (!d || typeof d.showModal !== 'function') return false;
-  d.showModal();
+  if (!d.open) d.showModal();
   d.scrollTop = 0;
-  history.replaceState(null, '', '#' + id);
+  openId = id;
+  if (push) history.pushState({ project: id }, '', '#' + id);
   return true;
 };
 document.querySelectorAll('[data-open]').forEach((a) => {
@@ -31,12 +35,39 @@ document.querySelectorAll('[data-open]').forEach((a) => {
   });
 });
 document.querySelectorAll('.sheet-dialog').forEach((d) => {
-  d.querySelector('[data-close]').addEventListener('click', () => d.close());
+  d.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => d.close()));
   d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
-  d.addEventListener('close', () => history.replaceState(null, '', location.pathname));
+  d.addEventListener('close', () => {
+    const id = openId;
+    openId = null;
+    // Closed with the button or Esc: step back over the entry we pushed.
+    if (id && history.state && history.state.project === id) history.back();
+    // Return to the project on the page, not the top of the page.
+    const card = document.getElementById('p-' + d.id.slice(2));
+    if (card) card.scrollIntoView({ block: 'start' });
+  });
+});
+window.addEventListener('popstate', () => {
+  const id = location.hash.slice(1);
+  const current = document.querySelector('.sheet-dialog[open]');
+  if (current && current.id !== 'd-' + id) { openId = null; current.close(); }
+  if (projects.includes(id)) openProject(id, false);
 });
 const initial = location.hash.slice(1);
-if (['imd', 'buck', 'metronome'].includes(initial)) openProject(initial);
+if (projects.includes(initial)) {
+  history.replaceState(null, '', location.pathname);
+  openProject(initial);
+}
+
+// Menu bar: collapsible list of links on phones
+(() => {
+  const btn = document.querySelector('.topbar-menu');
+  const links = document.getElementById('topbar-links');
+  if (!btn || !links) return;
+  const set = (open) => { btn.setAttribute('aria-expanded', String(open)); links.classList.toggle('is-open', open); btn.textContent = open ? 'Close' : 'Menu'; };
+  btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
+  links.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
+})();
 
 // Metronome — same behaviour as MorgansMetronome.ino
 (() => {
