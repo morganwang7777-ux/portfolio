@@ -546,3 +546,6 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
 .group .chips li.chip { display: inline-flex; grid-template-columns: none; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px; font-size: var(--step-small); line-height: 1.2; }
 .panel-line { display: flex; align-items: center; gap: 14px; }
 .uw-crest { width: 35px; height: 40px; flex: none; }
+
+/* Paper grain over the flat colours */
+body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("images/grain.png"); background-size: 240px 240px; }
