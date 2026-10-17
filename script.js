@@ -42,9 +42,6 @@ document.querySelectorAll('.sheet-dialog').forEach((d) => {
     openId = null;
     // Closed with the button or Esc: step back over the entry we pushed.
     if (id && history.state && history.state.project === id) history.back();
-    // Return to the project on the page, not the top of the page.
-    const card = document.getElementById('p-' + d.id.slice(2));
-    if (card) card.scrollIntoView({ block: 'start' });
   });
 });
 window.addEventListener('popstate', () => {

@@ -690,3 +690,17 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
   .hero { min-height: 720px; }
 }
 .frame.is-link { cursor: pointer; }
+
+/* Project photos grow a little on hover */
+@media (hover: hover) and (pointer: fine) {
+  .d-gallery figure, .d-figure, .d-hero img {
+    transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out);
+  }
+  .d-gallery figure:hover, .d-figure:hover, .d-hero img:hover {
+    transform: scale(1.03); position: relative; z-index: 1;
+    box-shadow: 0 12px 30px rgba(42, 42, 38, 0.25);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .d-gallery figure:hover, .d-figure:hover, .d-hero img:hover { transform: none; }
+}
