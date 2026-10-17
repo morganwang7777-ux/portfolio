@@ -535,3 +535,12 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
 .f-info { margin-top: 6px; font-size: var(--step-body); }
 .footer { align-items: start; }
 .footer .seeking { margin-top: 14px; }
+.skills dd .chips { margin-top: 8px; }
+.skills dd .chips { margin-top: 8px; }
+.group li { grid-template-columns: 28px 1fr auto; gap: 0 12px; align-items: start; }
+.org-logo { width: 28px; height: 28px; object-fit: contain; margin-top: 1px; }
+@media (max-width: 640px) {
+  .group li { grid-template-columns: 28px 1fr; }
+  .row-val { grid-column: 2; }
+}
+.group .chips li.chip { display: inline-flex; grid-template-columns: none; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px; font-size: var(--step-small); line-height: 1.2; }
