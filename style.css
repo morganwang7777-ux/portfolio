@@ -689,3 +689,4 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
   .panel { left: auto; width: auto; }
   .hero { min-height: 720px; }
 }
+.frame.is-link { cursor: pointer; }

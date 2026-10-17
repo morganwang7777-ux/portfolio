@@ -208,3 +208,13 @@ document.querySelectorAll('.viewer-btn').forEach((btn) => {
   // Closing the photo must not close the project underneath
   lb.addEventListener('cancel', (e) => e.stopPropagation());
 })();
+
+// Clicking a picture in the opening image wall opens that picture's project
+document.querySelectorAll('.sheet .frame').forEach((f) => {
+  const img = f.querySelector('img');
+  const m = img && img.getAttribute('src').match(/\/(buck|imd|met)-/);
+  if (!m) return;
+  const id = m[1] === 'met' ? 'metronome' : m[1];
+  f.classList.add('is-link');
+  f.addEventListener('click', () => openProject(id));
+});
