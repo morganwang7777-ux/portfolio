@@ -244,7 +244,7 @@ button, input, textarea { font: inherit; color: inherit; }
   background: var(--field-1);
 }
 .tile { background: var(--bg); padding: 20px; min-height: 220px; display: flex; flex-direction: column; }
-.t-statement { grid-column: 1 / 5; justify-content: flex-end; }
+.t-statement { grid-column: 1 / 5; }
 .t-legal { font-size: var(--step-small); color: var(--muted); }
 .t-nav { grid-column: 5 / 8; gap: 6px; font-size: var(--step-body); }
 .t-nav a { text-decoration-color: transparent; }
@@ -428,4 +428,19 @@ td { font-variant-numeric: tabular-nums; }
   .tile { min-height: 180px; }
   .d-head h2 { font-size: var(--step-lead); }
   .d-gallery img { height: 220px; }
+}
+
+/* Internship line, in the hero panel and the footer */
+.seeking {
+  display: inline-block; margin-top: 16px; padding: 6px 12px;
+  background: var(--accent); color: var(--accent-ink);
+  font-size: var(--step-body); font-weight: 500;
+}
+.t-statement { gap: 0; }
+.t-info { font-size: var(--step-body); line-height: 1.35; }
+.t-info strong { font-weight: 500; }
+.t-statement .seeking { align-self: flex-start; }
+.t-statement .t-legal { margin-top: auto; padding-top: 16px; }
+@media (max-width: 640px) {
+  .t-statement { grid-column: 1 / -1; order: 0; }
 }
