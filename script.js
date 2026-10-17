@@ -1,4 +1,4 @@
-// Morgan Wang — portfolio behaviour: entrances, project write-ups, filters, clock, metronome.
+// Morgan Wang — portfolio behaviour: entrances, project write-ups, metronome, 3D viewers.
 
 // Entrances
 const hero = document.querySelector('.hero');
@@ -37,16 +37,6 @@ document.querySelectorAll('.sheet-dialog').forEach((d) => {
 });
 const initial = location.hash.slice(1);
 if (['imd', 'buck', 'metronome'].includes(initial)) openProject(initial);
-
-// Local time in Waterloo
-const clock = document.getElementById('clock');
-const tick = () => {
-  clock.textContent = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit',
-  }).format(new Date());
-};
-tick();
-setInterval(tick, 15000);
 
 // Metronome — same behaviour as MorgansMetronome.ino
 (() => {

@@ -508,3 +508,30 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
 .chip img { width: 20px; height: 20px; flex: none; object-fit: contain; }
 @media (hover: hover) and (pointer: fine) { .chip:hover { background: #fff; transform: translateY(-2px); } }
 .chip img.wide { width: 75px; height: 20px; }
+
+/* Skills, as on the resume */
+.skills { display: grid; gap: 14px; }
+.skills dt { font-weight: 500; font-size: var(--step-body); }
+.skills dd { font-size: var(--step-body); }
+.group li { grid-template-columns: 1fr auto; }
+
+/* Plain footer */
+.footer {
+  display: grid; grid-template-columns: auto 1fr; gap: 16px 48px; align-items: baseline;
+  padding: 40px var(--m) 32px; background: var(--ink); color: var(--bg);
+}
+.f-name { font-size: var(--step-lead); font-weight: 500; letter-spacing: -0.01em; }
+.f-links { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-self: end; font-size: var(--step-body); }
+.f-links a, .f-legal a { color: var(--bg); text-decoration-color: rgba(221, 214, 198, 0.4); }
+.f-legal { grid-column: 1 / -1; font-size: var(--step-small); color: #b9b2a2; }
+.contact { padding-top: var(--section-pad); }
+.contact-help a { color: var(--field-1-ink); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.5); }
+@media (max-width: 640px) {
+  .group li { grid-template-columns: 1fr; }
+  .row-val { grid-column: 1; }
+  .footer { grid-template-columns: 1fr; }
+  .f-links { justify-self: start; flex-direction: column; }
+}
+.f-info { margin-top: 6px; font-size: var(--step-body); }
+.footer { align-items: start; }
+.footer .seeking { margin-top: 14px; }
