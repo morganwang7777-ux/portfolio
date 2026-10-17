@@ -136,21 +136,3 @@ document.querySelectorAll('.viewer-btn').forEach((btn) => {
     mv.cameraTarget = 'auto auto auto';
   });
 });
-
-// Light / dark mode toggle
-(() => {
-  const btn = document.querySelector('.theme-toggle');
-  const label = btn.querySelector('.theme-label');
-  const sync = () => {
-    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-    label.textContent = dark ? 'Light mode' : 'Dark mode';
-    btn.setAttribute('aria-pressed', String(dark));
-  };
-  btn.addEventListener('click', () => {
-    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
-    sync();
-  });
-  sync();
-})();
