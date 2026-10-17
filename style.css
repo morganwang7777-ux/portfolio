@@ -493,3 +493,18 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; 
 /* The PCB, first thing in each project */
 .d-hero { margin-top: 16px; background: var(--surface); display: flex; justify-content: center; padding: clamp(16px, 3vw, 40px); }
 .d-hero img { width: auto; max-width: 100%; max-height: 62vh; object-fit: contain; }
+
+/* Tool and team chips with logos */
+.p-meta, .d-meta { display: grid; gap: 10px; }
+.meta-when { color: var(--muted); font-size: var(--step-body); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 36px; padding: 6px 12px;
+  background: var(--paper); color: var(--ink);
+  font-size: var(--step-small); font-weight: 500; line-height: 1.2;
+  transition: transform var(--t-press) var(--ease-out), background-color var(--t-hover) ease;
+}
+.chip img { width: 20px; height: 20px; flex: none; object-fit: contain; }
+@media (hover: hover) and (pointer: fine) { .chip:hover { background: #fff; transform: translateY(-2px); } }
+.chip img.wide { width: 75px; height: 20px; }
