@@ -136,3 +136,13 @@ setInterval(tick, 15000);
 
   render();
 })();
+
+// 3D board viewers: preset views
+document.querySelectorAll('.viewer-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const mv = document.getElementById(btn.dataset.mv);
+    if (!mv) return;
+    mv.cameraOrbit = btn.dataset.orbit;
+    mv.cameraTarget = 'auto auto auto';
+  });
+});

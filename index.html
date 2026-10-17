@@ -193,6 +193,20 @@
       <p><strong>Result:</strong> Calculated a 147 kOhm critical insulation threshold and design target equivalent fault resistances of 285, 485, and 75 kOhm. Planned selection states include PASS, WARNING, TECH FAIL, and a hard short scenario. The design provides a repeatable method to investigate firmware reported warnings and vehicle shutdown responses.</p>
       <p><strong>Next steps:</strong> Physical testing on the car after the PCB has been printed.</p>
     </div>
+    <section class="d-section">
+      <h3 class="d-sub">3D board</h3>
+      <div class="viewer">
+        <model-viewer id="mv-imd" src="models/imd-test-box.glb" alt="3D model of the IMD test box PCB" camera-controls touch-action="pan-y" camera-orbit="20deg 40deg 72%" interaction-prompt="none" shadow-intensity="0.6" exposure="1.05" environment-image="neutral" loading="lazy"></model-viewer>
+        <div class="viewer-bar">
+          <p class="viewer-hint">Drag to rotate. Scroll or pinch to zoom.</p>
+          <div class="viewer-buttons" role="group" aria-label="View">
+            <button class="viewer-btn" type="button" data-mv="mv-imd" data-orbit="0deg 0.01deg 78%">Top</button>
+            <button class="viewer-btn" type="button" data-mv="mv-imd" data-orbit="0deg 179.99deg 78%">Bottom</button>
+            <button class="viewer-btn" type="button" data-mv="mv-imd" data-orbit="20deg 40deg 72%">Reset</button>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="d-table-wrap">
       <table>
         <caption>Test conditions and vehicle response</caption>
@@ -283,6 +297,20 @@
       <p><strong>Result:</strong> Reduced simulated output ripple from 45.7 mVpp (v1) to 23.6 mVpp (48.3%, v2) by changing output capacitor ESR from 0.10 to 0.05 Ohm and tuning compensation (1 kOhm / 3.3 nF) at 15 V input and 1 A load.</p>
       <p><strong>PCB:</strong> Designed a 41.4 x 23.6 mm two layer SMD layout in Altium Designer with 25 mil power traces, 10 mil signal traces, a bottom layer GND polygon, and via connected returns. Reported zero violations under the DRC rules.</p>
     </div>
+    <section class="d-section">
+      <h3 class="d-sub">3D board</h3>
+      <div class="viewer">
+        <model-viewer id="mv-buck" src="models/buck-converter.glb" alt="3D model of the buck converter PCB" camera-controls touch-action="pan-y" camera-orbit="20deg 40deg 72%" interaction-prompt="none" shadow-intensity="0.6" exposure="1.05" environment-image="neutral" loading="lazy"></model-viewer>
+        <div class="viewer-bar">
+          <p class="viewer-hint">Drag to rotate. Scroll or pinch to zoom.</p>
+          <div class="viewer-buttons" role="group" aria-label="View">
+            <button class="viewer-btn" type="button" data-mv="mv-buck" data-orbit="0deg 0.01deg 78%">Top</button>
+            <button class="viewer-btn" type="button" data-mv="mv-buck" data-orbit="0deg 179.99deg 78%">Bottom</button>
+            <button class="viewer-btn" type="button" data-mv="mv-buck" data-orbit="20deg 40deg 72%">Reset</button>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="d-section">
       <h3 class="d-sub">Design specifications</h3>
       <p class="d-lede">Goal: an asynchronous buck converter that takes 10–15 V in and outputs 5 V at 1 A, using surface mount parts only. Assumes 90% efficiency, tested at 15 V.</p>
@@ -574,6 +602,7 @@
   </div>
 </dialog>
 
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

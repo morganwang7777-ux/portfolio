@@ -1,0 +1,4 @@
+*.step
+*.stp
+.playwright-cli/
+.taste-skill/
