@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morgan Wang · Electrical Engineering</title>
+<meta name="description" content="Morgan Wang, Electrical Engineering at the University of Waterloo. PCB design, power electronics and embedded projects.">
+<meta property="og:title" content="Morgan Wang · Electrical Engineering">
+<meta property="og:description" content="PCB design, power electronics and embedded projects from a Waterloo EE student.">
+<meta property="og:image" content="images/full/buck-3d-top.webp">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="panel">
+    <h1 class="wordmark">Hi, I'm Morgan Wang</h1>
+    <p class="panel-line">Honours Electrical Engineering (Co&#8209;op), University of Waterloo</p>
+    <a class="button" href="#projects">See the projects</a>
+    <nav class="panel-links" aria-label="Elsewhere">
+      <a class="link" href="morgan-wang-resume.pdf">Resume</a>
+      <a class="link" href="morgan-wang-portfolio.pdf">Portfolio PDF</a>
+      <a class="link" href="https://github.com/morganwang7777-ux">GitHub</a>
+      <a class="link" href="https://www.linkedin.com/in/morgan-wang-a60675427/">LinkedIn</a>
+    </nav>
+  </div>
+  <div class="sheet">
+<div class="col c1"><div class="col-track"><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-3d-top.webp" width="711" height="420" alt="Buck converter, v2 board"><span class="strip">Buck converter, v2 board</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-display.webp" width="661" height="420" alt="Running at 180 BPM"><span class="strip">Running at 180 BPM</span></a><a class="frame" href="#imd" data-open="imd"><img src="images/thumb/imd-sch.webp" width="643" height="420" alt="IMD resistor networks"><span class="strip">IMD resistor networks</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-v1-ripple.webp" width="1664" height="420" alt="v1 ripple, 45.7 mVpp"><span class="strip">v1 ripple, 45.7 mVpp</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-gerber-front.webp" width="518" height="420" alt="Gerber, front"><span class="strip">Gerber, front</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-2d-bottom.webp" width="737" height="420" alt="Buck, bottom GND pour"><span class="strip">Buck, bottom GND pour</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-case-front.webp" width="450" height="420" alt="Enclosure, front"><span class="strip">Enclosure, front</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-3d-top.webp" width="711" height="420" alt=""><span class="strip">Buck converter, v2 board</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-display.webp" width="661" height="420" alt=""><span class="strip">Running at 180 BPM</span></a><a class="frame" href="#imd" data-open="imd" aria-hidden="true" tabindex="-1"><img src="images/thumb/imd-sch.webp" width="643" height="420" alt=""><span class="strip">IMD resistor networks</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-v1-ripple.webp" width="1664" height="420" alt=""><span class="strip">v1 ripple, 45.7 mVpp</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-gerber-front.webp" width="518" height="420" alt=""><span class="strip">Gerber, front</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-2d-bottom.webp" width="737" height="420" alt=""><span class="strip">Buck, bottom GND pour</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-case-front.webp" width="450" height="420" alt=""><span class="strip">Enclosure, front</span></a></div></div>
+<div class="col c2"><div class="col-track"><a class="frame" href="#imd" data-open="imd"><img src="images/thumb/imd-3d.webp" width="750" height="420" alt="IMD test box, 3D"><span class="strip">IMD test box, 3D</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-v2-sch.webp" width="1061" height="420" alt="Buck v2, LTspice"><span class="strip">Buck v2, LTspice</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-breadboard.webp" width="561" height="420" alt="Metronome, breadboard"><span class="strip">Metronome, breadboard</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-2d-top.webp" width="731" height="420" alt="Buck, top copper"><span class="strip">Buck, top copper</span></a><a class="frame" href="#imd" data-open="imd"><img src="images/thumb/imd-table.webp" width="587" height="420" alt="Test positions and response"><span class="strip">Test positions and response</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-gerber-back.webp" width="519" height="420" alt="Gerber, back"><span class="strip">Gerber, back</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-altium-sch.webp" width="635" height="420" alt="Buck, Altium schematic"><span class="strip">Buck, Altium schematic</span></a><a class="frame" href="#imd" data-open="imd" aria-hidden="true" tabindex="-1"><img src="images/thumb/imd-3d.webp" width="750" height="420" alt=""><span class="strip">IMD test box, 3D</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-v2-sch.webp" width="1061" height="420" alt=""><span class="strip">Buck v2, LTspice</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-breadboard.webp" width="561" height="420" alt=""><span class="strip">Metronome, breadboard</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-2d-top.webp" width="731" height="420" alt=""><span class="strip">Buck, top copper</span></a><a class="frame" href="#imd" data-open="imd" aria-hidden="true" tabindex="-1"><img src="images/thumb/imd-table.webp" width="587" height="420" alt=""><span class="strip">Test positions and response</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-gerber-back.webp" width="519" height="420" alt=""><span class="strip">Gerber, back</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-altium-sch.webp" width="635" height="420" alt=""><span class="strip">Buck, Altium schematic</span></a></div></div>
+<div class="col c3"><div class="col-track"><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-3d-top.webp" width="661" height="420" alt="Metronome shield, 3D"><span class="strip">Metronome shield, 3D</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-ripple-chart.webp" width="925" height="420" alt="Ripple by design"><span class="strip">Ripple by design</span></a><a class="frame" href="#imd" data-open="imd"><img src="images/thumb/imd-2d.webp" width="542" height="420" alt="IMD test box, layout"><span class="strip">IMD test box, layout</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-sch.webp" width="728" height="420" alt="Metronome schematic"><span class="strip">Metronome schematic</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-v2-ripple.webp" width="1797" height="420" alt="v2 ripple, 23.6 mVpp"><span class="strip">v2 ripple, 23.6 mVpp</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-case-angle.webp" width="447" height="420" alt="Enclosure, right angle"><span class="strip">Enclosure, right angle</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-3d-top.webp" width="661" height="420" alt=""><span class="strip">Metronome shield, 3D</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-ripple-chart.webp" width="925" height="420" alt=""><span class="strip">Ripple by design</span></a><a class="frame" href="#imd" data-open="imd" aria-hidden="true" tabindex="-1"><img src="images/thumb/imd-2d.webp" width="542" height="420" alt=""><span class="strip">IMD test box, layout</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-sch.webp" width="728" height="420" alt=""><span class="strip">Metronome schematic</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-v2-ripple.webp" width="1797" height="420" alt=""><span class="strip">v2 ripple, 23.6 mVpp</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-case-angle.webp" width="447" height="420" alt=""><span class="strip">Enclosure, right angle</span></a></div></div>
+<div class="col c4"><div class="col-track"><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-altium-sch.webp" width="635" height="420" alt="Buck, Altium schematic"><span class="strip">Buck, Altium schematic</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-pcb.webp" width="511" height="420" alt="Shield layout, KiCad"><span class="strip">Shield layout, KiCad</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-ref-ripple.webp" width="1684" height="420" alt="Reference ripple, 35.1 mVpp"><span class="strip">Reference ripple, 35.1 mVpp</span></a><a class="frame" href="#imd" data-open="imd"><img src="images/thumb/imd-sch-altium.webp" width="803" height="420" alt="IMD schematic in Altium"><span class="strip">IMD schematic in Altium</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-display.webp" width="661" height="420" alt="Running at 180 BPM"><span class="strip">Running at 180 BPM</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-2d-top.webp" width="731" height="420" alt="Buck, top copper"><span class="strip">Buck, top copper</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-altium-sch.webp" width="635" height="420" alt=""><span class="strip">Buck, Altium schematic</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-pcb.webp" width="511" height="420" alt=""><span class="strip">Shield layout, KiCad</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-ref-ripple.webp" width="1684" height="420" alt=""><span class="strip">Reference ripple, 35.1 mVpp</span></a><a class="frame" href="#imd" data-open="imd" aria-hidden="true" tabindex="-1"><img src="images/thumb/imd-sch-altium.webp" width="803" height="420" alt=""><span class="strip">IMD schematic in Altium</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-display.webp" width="661" height="420" alt=""><span class="strip">Running at 180 BPM</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-2d-top.webp" width="731" height="420" alt=""><span class="strip">Buck, top copper</span></a></div></div>
+<div class="col c5"><div class="col-track"><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-case-birds.webp" width="905" height="420" alt="Enclosure, from above"><span class="strip">Enclosure, from above</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-3d-bottom.webp" width="756" height="420" alt="Buck converter, underside"><span class="strip">Buck converter, underside</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-3d-bottom.webp" width="651" height="420" alt="Shield underside"><span class="strip">Shield underside</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-ref-sch.webp" width="987" height="420" alt="LT1375 reference circuit"><span class="strip">LT1375 reference circuit</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-gerber-back.webp" width="519" height="420" alt="Gerber, back"><span class="strip">Gerber, back</span></a><a class="frame" href="#imd" data-open="imd"><img src="images/thumb/imd-3d.webp" width="750" height="420" alt="IMD test box, 3D"><span class="strip">IMD test box, 3D</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-case-birds.webp" width="905" height="420" alt=""><span class="strip">Enclosure, from above</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-3d-bottom.webp" width="756" height="420" alt=""><span class="strip">Buck converter, underside</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-3d-bottom.webp" width="651" height="420" alt=""><span class="strip">Shield underside</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-ref-sch.webp" width="987" height="420" alt=""><span class="strip">LT1375 reference circuit</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-gerber-back.webp" width="519" height="420" alt=""><span class="strip">Gerber, back</span></a><a class="frame" href="#imd" data-open="imd" aria-hidden="true" tabindex="-1"><img src="images/thumb/imd-3d.webp" width="750" height="420" alt=""><span class="strip">IMD test box, 3D</span></a></div></div>
+<div class="col c6"><div class="col-track"><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-v2-ripple.webp" width="1797" height="420" alt="v2 ripple, 23.6 mVpp"><span class="strip">v2 ripple, 23.6 mVpp</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-case-front.webp" width="450" height="420" alt="Enclosure, front"><span class="strip">Enclosure, front</span></a><a class="frame" href="#imd" data-open="imd"><img src="images/thumb/imd-2d.webp" width="542" height="420" alt="IMD test box, layout"><span class="strip">IMD test box, layout</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-v1-sch.webp" width="1090" height="420" alt="Buck v1, LTspice"><span class="strip">Buck v1, LTspice</span></a><a class="frame" href="#metronome" data-open="metronome"><img src="images/thumb/met-case-angle.webp" width="447" height="420" alt="Enclosure, right angle"><span class="strip">Enclosure, right angle</span></a><a class="frame" href="#buck" data-open="buck"><img src="images/thumb/buck-3d-top.webp" width="711" height="420" alt="Buck converter, v2 board"><span class="strip">Buck converter, v2 board</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-v2-ripple.webp" width="1797" height="420" alt=""><span class="strip">v2 ripple, 23.6 mVpp</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-case-front.webp" width="450" height="420" alt=""><span class="strip">Enclosure, front</span></a><a class="frame" href="#imd" data-open="imd" aria-hidden="true" tabindex="-1"><img src="images/thumb/imd-2d.webp" width="542" height="420" alt=""><span class="strip">IMD test box, layout</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-v1-sch.webp" width="1090" height="420" alt=""><span class="strip">Buck v1, LTspice</span></a><a class="frame" href="#metronome" data-open="metronome" aria-hidden="true" tabindex="-1"><img src="images/thumb/met-case-angle.webp" width="447" height="420" alt=""><span class="strip">Enclosure, right angle</span></a><a class="frame" href="#buck" data-open="buck" aria-hidden="true" tabindex="-1"><img src="images/thumb/buck-3d-top.webp" width="711" height="420" alt=""><span class="strip">Buck converter, v2 board</span></a></div></div>
+  </div>
+</header>
+
+<main>
+
+<section class="section work" id="projects" aria-labelledby="work-title">
+  <h2 id="work-title" class="section-title" data-rise>Projects</h2>
+  <div class="work-grid">
+  <nav class="rail" aria-label="Projects by name">
+    <ul>
+      <li><a class="link" href="#p-imd">IMD Test Box</a></li>
+      <li><a class="link" href="#p-buck">5 V DC-DC Buck Converter</a></li>
+      <li><a class="link" href="#p-metronome">Morgan's Metronome v1.0</a></li>
+    </ul>
+  </nav>
+  <div class="strips">
+    <article class="project" id="p-imd" data-rise>
+      <h3 class="p-name"><a href="#imd" data-open="imd">IMD Test Box</a></h3>
+      <p class="p-meta">UW Formula Electric · Sep – Oct 2026 · Altium Designer, Safety Analysis, High Voltage Electronics</p>
+      <a class="strip-row" href="#imd" data-open="imd" aria-label="Open IMD Test Box"><span class="strip-track"><img src="images/thumb/imd-3d.webp" width="750" height="420" alt="IMD test box, 3D" loading="lazy"><img src="images/thumb/imd-sch-altium.webp" width="803" height="420" alt="IMD schematic in Altium" loading="lazy"><img src="images/thumb/imd-2d.webp" width="542" height="420" alt="IMD test box, layout" loading="lazy"><img src="images/thumb/imd-table.webp" width="587" height="420" alt="Test positions and response" loading="lazy"><img src="images/thumb/imd-sch.webp" width="643" height="420" alt="IMD resistor networks" loading="lazy"><img src="images/thumb/imd-3d.webp" width="750" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/imd-sch-altium.webp" width="803" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/imd-2d.webp" width="542" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/imd-table.webp" width="587" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/imd-sch.webp" width="643" height="420" alt="" loading="lazy" class="dup-img"></span></a>
+      <p class="summary">Designed an IMD test box for UW Formula Electric to simulate PASS, WARNING, TECH FAIL, and hard short conditions for FSAE high voltage safety verification.</p>
+      <a class="p-open button" href="#imd" data-open="imd">Open project</a>
+    </article>
+    <article class="project" id="p-buck" data-rise>
+      <h3 class="p-name"><a href="#buck" data-open="buck">5 V DC-DC Buck Converter</a></h3>
+      <p class="p-meta">Sep – Oct 2026 · LTspice, Altium Designer, PCB Design</p>
+      <a class="strip-row" href="#buck" data-open="buck" aria-label="Open 5 V DC-DC Buck Converter"><span class="strip-track"><img src="images/thumb/buck-3d-top.webp" width="711" height="420" alt="Buck converter, v2 board" loading="lazy"><img src="images/thumb/buck-v2-sch.webp" width="1061" height="420" alt="Buck v2, LTspice" loading="lazy"><img src="images/thumb/buck-2d-top.webp" width="731" height="420" alt="Buck, top copper" loading="lazy"><img src="images/thumb/buck-ripple-chart.webp" width="925" height="420" alt="Ripple by design" loading="lazy"><img src="images/thumb/buck-v2-ripple.webp" width="1797" height="420" alt="v2 ripple, 23.6 mVpp" loading="lazy"><img src="images/thumb/buck-3d-bottom.webp" width="756" height="420" alt="Buck converter, underside" loading="lazy"><img src="images/thumb/buck-3d-top.webp" width="711" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/buck-v2-sch.webp" width="1061" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/buck-2d-top.webp" width="731" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/buck-ripple-chart.webp" width="925" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/buck-v2-ripple.webp" width="1797" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/buck-3d-bottom.webp" width="756" height="420" alt="" loading="lazy" class="dup-img"></span></a>
+      <p class="summary">Designed a 10–15V to 5V, 1A DC-DC buck converter using an LT1375 switching regulator, with a 41.4 × 23.6 mm two layer SMD PCB in Altium Designer.</p>
+      <a class="p-open button" href="#buck" data-open="buck">Open project</a>
+    </article>
+    <article class="project" id="p-metronome" data-rise>
+      <h3 class="p-name"><a href="#metronome" data-open="metronome">Morgan's Metronome v1.0</a></h3>
+      <p class="p-meta">Jul – Sep 2026 · Arduino UNO, C++, KiCad, PCB Design, Embedded Systems</p>
+      <a class="strip-row" href="#metronome" data-open="metronome" aria-label="Open Morgan's Metronome v1.0"><span class="strip-track"><img src="images/thumb/met-breadboard.webp" width="561" height="420" alt="Metronome, breadboard" loading="lazy"><img src="images/thumb/met-3d-top.webp" width="661" height="420" alt="Metronome shield, 3D" loading="lazy"><img src="images/thumb/met-display.webp" width="661" height="420" alt="Running at 180 BPM" loading="lazy"><img src="images/thumb/met-pcb.webp" width="511" height="420" alt="Shield layout, KiCad" loading="lazy"><img src="images/thumb/met-sch.webp" width="728" height="420" alt="Metronome schematic" loading="lazy"><img src="images/thumb/met-case-birds.webp" width="905" height="420" alt="Enclosure, from above" loading="lazy"><img src="images/thumb/met-breadboard.webp" width="561" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/met-3d-top.webp" width="661" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/met-display.webp" width="661" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/met-pcb.webp" width="511" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/met-sch.webp" width="728" height="420" alt="" loading="lazy" class="dup-img"><img src="images/thumb/met-case-birds.webp" width="905" height="420" alt="" loading="lazy" class="dup-img"></span></a>
+      <p class="summary">Designed and programmed an embedded digital metronome in C++ using an Arduino UNO, with adjustable 40–180 BPM, potentiometer control, push button inputs, and a 16×2 LCD. Try the browser edition inside the project.</p>
+      <a class="p-open button" href="#metronome" data-open="metronome">Open project</a>
+    </article>
+  </div>
+  </div>
+</section>
+
+<section class="section list" id="experience" aria-labelledby="list-title">
+  <div class="list-col">
+  <h2 id="list-title" class="section-title" data-rise>Experience</h2>
+
+  <div class="group" data-rise>
+    <p class="group-word">Teams and work</p>
+    <ul>
+      <li><span class="dot dot-moss" aria-hidden="true"></span><span class="row-main"><strong>Electrical and Firmware Team Member</strong>, University of Waterloo Formula Electric. Contributing to the redesign of the vehicle's Telematics Communication Unit.</span><span class="row-val">Sep 2026 – Present</span></li>
+      <li><span class="dot dot-sand" aria-hidden="true"></span><span class="row-main"><strong>Badminton Program Instructor</strong>, City of Richmond Hill. Coached beginner and intermediate badminton classes of 15 students.</span><span class="row-val">Aug 2025 – May 2026</span></li>
+    </ul>
+  </div>
+
+  <div class="group" data-rise>
+    <p class="group-word">Education</p>
+    <ul>
+      <li><span class="dot dot-ink" aria-hidden="true"></span><span class="row-main"><strong>University of Waterloo</strong>, BASc Honours Electrical Engineering (Co-op)</span><span class="row-val">Sep 2026 – Apr 2031</span></li>
+    </ul>
+  </div>
+
+  <div class="group" data-rise>
+    <p class="group-word">Tools</p>
+    <ul>
+      <li><span class="dot dot-moss" aria-hidden="true"></span><span class="row-main"><strong>Altium Designer</strong></span><span class="row-val">Buck, IMD box</span></li>
+      <li><span class="dot dot-moss" aria-hidden="true"></span><span class="row-main"><strong>KiCad</strong></span><span class="row-val">Metronome shield</span></li>
+      <li><span class="dot dot-moss" aria-hidden="true"></span><span class="row-main"><strong>LTspice</strong></span><span class="row-val">Buck, Formula Electric</span></li>
+      <li><span class="dot dot-sand" aria-hidden="true"></span><span class="row-main"><strong>Arduino UNO, ESP32</strong></span><span class="row-val">Metronome</span></li>
+      <li><span class="dot dot-sand" aria-hidden="true"></span><span class="row-main"><strong>Soldering, breadboard prototyping</strong></span><span class="row-val">Hardware</span></li>
+      <li><span class="dot dot-sand" aria-hidden="true"></span><span class="row-main"><strong>Sensor interfacing, analog and digital I/O</strong></span><span class="row-val">Hardware</span></li>
+      <li><span class="dot dot-ink" aria-hidden="true"></span><span class="row-main"><strong>C++, Python, Java</strong></span><span class="row-val">Metronome</span></li>
+      <li><span class="dot dot-ink" aria-hidden="true"></span><span class="row-main"><strong>Git and GitHub</strong></span><span class="row-val">All projects</span></li>
+      <li><span class="dot dot-ink" aria-hidden="true"></span><span class="row-main"><strong>FDM 3D printing, DigiKey sourcing</strong></span><span class="row-val">Parts</span></li>
+    </ul>
+  </div>
+  </div>
+  <figure class="list-figure" data-rise><img src="images/full/met-breadboard.webp" width="1024" height="767" alt="Metronome prototype on a breadboard: Arduino, 16x2 LCD, potentiometer, buttons, LED and buzzer" loading="lazy"><figcaption>Hardware prototyping on breadboard</figcaption></figure>
+</section>
+
+<section class="section about" id="about" aria-labelledby="about-title">
+  <h2 id="about-title" class="section-title" data-rise>About me</h2>
+  <div class="about-row">
+    <p class="about-text" data-rise>Hi, I'm Morgan! I'm an Electrical Engineering student at the University of Waterloo. I'm interested in hardware, firmware and software, and I'm on the electrical and firmware team at UW Formula Electric. Outside of engineering, I play saxophone and have coached badminton.</p>
+    <dl class="facts" data-rise>
+      <div><dt>Studying</dt><dd>Electrical Engineering</dd></div>
+      <div><dt>At</dt><dd>University of Waterloo</dd></div>
+      <div><dt>Graduating</dt><dd>April 2031</dd></div>
+      <div><dt>From</dt><dd>Richmond Hill, Ontario</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="marquee" aria-label="Project images"><div class="marquee-track"><img src="images/thumb/met-display.webp" width="661" height="420" alt="Running at 180 BPM" loading="lazy"><img src="images/thumb/buck-3d-top.webp" width="711" height="420" alt="Buck converter, v2 board" loading="lazy"><img src="images/thumb/imd-3d.webp" width="750" height="420" alt="IMD test box, 3D" loading="lazy"><img src="images/thumb/met-breadboard.webp" width="561" height="420" alt="Metronome, breadboard" loading="lazy"><img src="images/thumb/buck-2d-top.webp" width="731" height="420" alt="Buck, top copper" loading="lazy"><img src="images/thumb/met-3d-top.webp" width="661" height="420" alt="Metronome shield, 3D" loading="lazy"><img src="images/thumb/imd-2d.webp" width="542" height="420" alt="IMD test box, layout" loading="lazy"><img src="images/thumb/buck-3d-bottom.webp" width="756" height="420" alt="Buck converter, underside" loading="lazy"><img src="images/thumb/met-pcb.webp" width="511" height="420" alt="Shield layout, KiCad" loading="lazy"><img src="images/thumb/imd-table.webp" width="587" height="420" alt="Test positions and response" loading="lazy"><img src="images/thumb/met-case-birds.webp" width="905" height="420" alt="Enclosure, from above" loading="lazy"><img src="images/thumb/buck-v2-sch.webp" width="1061" height="420" alt="Buck v2, LTspice" loading="lazy"><span class="dup" aria-hidden="true"><img src="images/thumb/met-display.webp" width="661" height="420" alt="" loading="lazy"><img src="images/thumb/buck-3d-top.webp" width="711" height="420" alt="" loading="lazy"><img src="images/thumb/imd-3d.webp" width="750" height="420" alt="" loading="lazy"><img src="images/thumb/met-breadboard.webp" width="561" height="420" alt="" loading="lazy"><img src="images/thumb/buck-2d-top.webp" width="731" height="420" alt="" loading="lazy"><img src="images/thumb/met-3d-top.webp" width="661" height="420" alt="" loading="lazy"><img src="images/thumb/imd-2d.webp" width="542" height="420" alt="" loading="lazy"><img src="images/thumb/buck-3d-bottom.webp" width="756" height="420" alt="" loading="lazy"><img src="images/thumb/met-pcb.webp" width="511" height="420" alt="" loading="lazy"><img src="images/thumb/imd-table.webp" width="587" height="420" alt="" loading="lazy"><img src="images/thumb/met-case-birds.webp" width="905" height="420" alt="" loading="lazy"><img src="images/thumb/buck-v2-sch.webp" width="1061" height="420" alt="" loading="lazy"></span></div></div>
+  <h2 id="contact-title" class="section-title" data-rise>Contact</h2>
+  <p class="contact-help" data-rise>Send me a message: type your email and message in the boxes below, then press Send.</p>
+  <form class="contact-form" name="contact" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" data-rise>
+    <input type="hidden" name="form-name" value="contact">
+    <p class="hp"><label>Leave this empty <input name="bot-field"></label></p>
+    <div class="fields">
+      <label class="field"><span class="field-label">Your email</span><input type="email" name="email" placeholder="Type your email here" required autocomplete="email"></label>
+      <label class="field field-msg"><span class="field-label">Your message</span><textarea name="message" rows="4" placeholder="Type your message here" required></textarea></label>
+      <button class="send" type="submit">Send message</button>
+    </div>
+    <div class="fine">
+      <p>Or email <a class="link" href="mailto:m668wang@uwaterloo.ca">m668wang@uwaterloo.ca</a></p>
+      
+    </div>
+  </form>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="tile t-statement">
+    <p class="t-legal">© 2026 Morgan Wang</p>
+  </div>
+  <nav class="tile t-nav" aria-label="Footer">
+    <a class="link" href="#projects">Projects</a>
+    <a class="link" href="#experience">Experience</a>
+    <a class="link" href="#about">About</a>
+    <a class="link" href="#contact">Contact</a>
+    <a class="link" href="#top">Back to top</a>
+  </nav>
+  <div class="tile t-time">
+    <p>Waterloo, Ontario</p>
+    <p class="t-clock" id="clock">Eastern time</p>
+  </div>
+  <div class="tile t-mail">
+    <a class="link t-mid" href="mailto:m668wang@uwaterloo.ca">m668wang@uwaterloo.ca</a>
+  </div>
+  <div class="tile t-word"><p class="mega" aria-label="Morgan Wang">Morgan Wang</p></div>
+  <a class="tile t-cta" href="morgan-wang-resume.pdf">
+    <span class="t-mid">Resume</span>
+    <svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true"><path d="M12 36 36 12M16 12h20v20" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+  </a>
+</footer>
+
+<!-- Project write-ups -->
+<dialog class="sheet-dialog" id="d-imd" aria-labelledby="imd-t">
+  <div class="d-inner">
+    <div class="d-head">
+      <h2 id="imd-t">IMD test box</h2>
+      <button class="d-close button" type="button" data-close>Close</button>
+    </div>
+    <p class="d-meta">UW Formula Electric · Sep – Oct 2026 · Altium Designer, safety analysis, high-voltage electronics</p>
+    <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/IMD-Test-Box-UWFE">View on GitHub</a></p>
+    <div class="d-body">
+      <p><strong>What:</strong> Developing a passive insulation monitoring fault injection test box for the Formula Electric vehicle, interfacing through the HV+/HV- Tractive System Measuring Points (TSMP) and chassis reference for controlled test conditions.</p>
+      <p><strong>How:</strong> Created Altium Designer schematics and resistor networks. Accounted for 15 kOhm TSMP protection resistance and evaluated a 588 V tractive system against the FSAE 250 Ohm/V insulation criterion.</p>
+      <p><strong>Result:</strong> Calculated a 147 kOhm critical insulation threshold and design target equivalent fault resistances of 285, 485, and 75 kOhm. Planned selection states include PASS, WARNING, TECH FAIL, and a hard short scenario. The design provides a repeatable method to investigate firmware reported warnings and vehicle shutdown responses.</p>
+      <p><strong>Next steps:</strong> Physical testing on the car after the PCB has been printed.</p>
+    </div>
+    <div class="d-table-wrap">
+      <table>
+        <caption>Test conditions and vehicle response</caption>
+        <thead><tr><th scope="col">Position</th><th scope="col">Target fault</th><th scope="col">Box resistor</th><th scope="col">Worst-case power</th><th scope="col">Expected IMD response</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Open / off</th><td>Disconnected</td><td>Open circuit</td><td>0 W</td><td>Normal operation, safe for connecting leads</td></tr>
+          <tr><th scope="row">Pass</th><td>≈ 285 kΩ</td><td>270 kΩ</td><td>0.85 W</td><td>Car stays on, well above 147 kΩ</td></tr>
+          <tr><th scope="row">Warning</th><td>≈ 500 kΩ</td><td>470 – 485 kΩ</td><td>0.48 W</td><td>Warning over CAN, car stays on</td></tr>
+          <tr><th scope="row">Tech fail</th><td>75 kΩ (50% margin)</td><td>60 kΩ</td><td>3.7 W</td><td>Mandatory trip: OK_hs drops, shutdown circuit opens within 30 s</td></tr>
+          <tr><th scope="row">Hard short</th><td>15 kΩ (car's own resistor)</td><td>0 Ω, direct wire</td><td>0 W in box (23 W in car)</td><td>Immediate trip, HV to chassis short</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="d-gallery"><figure><img src="images/full/imd-sch-altium.webp" width="1800" height="942" alt="IMD schematic in Altium" loading="lazy"><figcaption>IMD schematic in Altium</figcaption></figure>
+<figure><img src="images/full/imd-3d.webp" width="1690" height="946" alt="IMD test box, 3D" loading="lazy"><figcaption>IMD test box, 3D</figcaption></figure>
+<figure><img src="images/full/imd-2d.webp" width="1132" height="877" alt="IMD test box, layout" loading="lazy"><figcaption>IMD test box, layout</figcaption></figure>
+<figure><img src="images/full/imd-sch.webp" width="1372" height="896" alt="IMD resistor networks" loading="lazy"><figcaption>IMD resistor networks</figcaption></figure>
+<figure><img src="images/full/imd-table.webp" width="1027" height="735" alt="Test positions and response" loading="lazy"><figcaption>Test positions and response</figcaption></figure></div>
+  </div>
+</dialog>
+
+<dialog class="sheet-dialog" id="d-buck" aria-labelledby="buck-t">
+  <div class="d-inner">
+    <div class="d-head">
+      <h2 id="buck-t">5 V DC-DC buck converter</h2>
+      <button class="d-close button" type="button" data-close>Close</button>
+    </div>
+    <p class="d-meta">UW Midnight Sun design task · Sep – Oct 2026 · LTspice, Altium Designer, PCB design</p>
+    <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/5V-DC-DC-Buck-Converter">View on GitHub</a></p>
+    <div class="d-body">
+      <p><strong>What:</strong> Designed a compact 10-15 V input to regulated 5 V, 1 A switching buck converter using the LT1375 for a low voltage power supply design task.</p>
+      <p><strong>How:</strong> Selected a 15 uH inductor, Schottky freewheeling diode, input/output capacitors, and resistive feedback components using datasheets and calculations. Simulated switching behavior and component trade offs in LTspice.</p>
+      <p><strong>Result:</strong> Reduced simulated output ripple from 45.7 mVpp (v1) to 23.6 mVpp (48.3%, v2) by changing output capacitor ESR from 0.10 to 0.05 Ohm and tuning compensation (1 kOhm / 3.3 nF) at 15 V input and 1 A load.</p>
+      <p><strong>PCB:</strong> Designed a 41.4 x 23.6 mm two layer SMD layout in Altium Designer with 25 mil power traces, 10 mil signal traces, a bottom layer GND polygon, and via connected returns. Reported zero violations under the DRC rules.</p>
+    </div>
+    <div class="d-table-wrap">
+      <table>
+        <caption>Simulated output, 15 V in, 5 Ω load, 8–10 ms steady state</caption>
+        <thead><tr><th scope="col">Measurement</th><th scope="col">LT1375 reference</th><th scope="col">v1</th><th scope="col">v2</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Average output</th><td>5.01499 V</td><td>5.01525 V</td><td>5.01524 V</td></tr>
+          <tr><th scope="row">Maximum</th><td>5.03242 V</td><td>5.03798 V</td><td>5.02700 V</td></tr>
+          <tr><th scope="row">Minimum</th><td>4.99729 V</td><td>4.99226 V</td><td>5.00336 V</td></tr>
+          <tr><th scope="row">Peak-to-peak ripple</th><td>35.138 mV</td><td>45.722 mV</td><td><strong>23.639 mV</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="d-gallery"><figure><img src="images/full/buck-3d-top.webp" width="907" height="536" alt="Buck converter, v2 board" loading="lazy"><figcaption>Buck converter, v2 board</figcaption></figure>
+<figure><img src="images/full/buck-3d-bottom.webp" width="1017" height="565" alt="Buck converter, underside" loading="lazy"><figcaption>Buck converter, underside</figcaption></figure>
+<figure><img src="images/full/buck-2d-top.webp" width="917" height="527" alt="Buck, top copper" loading="lazy"><figcaption>Buck, top copper</figcaption></figure>
+<figure><img src="images/full/buck-2d-bottom.webp" width="912" height="520" alt="Buck, bottom GND pour" loading="lazy"><figcaption>Buck, bottom GND pour</figcaption></figure>
+<figure><img src="images/full/buck-altium-sch.webp" width="1332" height="881" alt="Buck, Altium schematic" loading="lazy"><figcaption>Buck, Altium schematic</figcaption></figure>
+<figure><img src="images/full/buck-ref-sch.webp" width="1800" height="766" alt="LT1375 reference circuit" loading="lazy"><figcaption>LT1375 reference circuit</figcaption></figure>
+<figure><img src="images/full/buck-v1-sch.webp" width="1407" height="542" alt="Buck v1, LTspice" loading="lazy"><figcaption>Buck v1, LTspice</figcaption></figure>
+<figure><img src="images/full/buck-v2-sch.webp" width="1452" height="575" alt="Buck v2, LTspice" loading="lazy"><figcaption>Buck v2, LTspice</figcaption></figure>
+<figure><img src="images/full/buck-ref-ripple.webp" width="1800" height="449" alt="Reference ripple, 35.1 mVpp" loading="lazy"><figcaption>Reference ripple, 35.1 mVpp</figcaption></figure>
+<figure><img src="images/full/buck-v1-ripple.webp" width="1800" height="454" alt="v1 ripple, 45.7 mVpp" loading="lazy"><figcaption>v1 ripple, 45.7 mVpp</figcaption></figure>
+<figure><img src="images/full/buck-v2-ripple.webp" width="1800" height="421" alt="v2 ripple, 23.6 mVpp" loading="lazy"><figcaption>v2 ripple, 23.6 mVpp</figcaption></figure>
+<figure><img src="images/full/buck-ripple-chart.webp" width="1106" height="502" alt="Ripple by design" loading="lazy"><figcaption>Ripple by design</figcaption></figure></div>
+  </div>
+</dialog>
+
+<dialog class="sheet-dialog" id="d-metronome" aria-labelledby="met-t">
+  <div class="d-inner">
+    <div class="d-head">
+      <h2 id="met-t">Morgan's Metronome v1.0</h2>
+      <button class="d-close button" type="button" data-close>Close</button>
+    </div>
+    <p class="d-meta">Personal project · Jul – Sep 2026 · Arduino UNO, C++, KiCad, embedded systems</p>
+    <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/Morgan-s-Metronome-v1.0">View on GitHub</a></p>
+    <div class="d-body">
+      <p><strong>What:</strong> Built an Arduino UNO based digital metronome after finding myself getting distracted using my phone while practicing saxophone. Designed it to help maintain a consistent rhythm, featuring adjustable 40–180 BPM tempo, selectable beat patterns, pushbutton controls, a potentiometer, and a 16×2 LCD.</p>
+      <p><strong>How:</strong> Programmed the timing and user interface in C++. Used millis() based non blocking timing to schedule beats while keeping tempo and button controls responsive. Prototyped and debugged the circuit on a breadboard before designing a custom Arduino UNO shield PCB in KiCad to integrate the components.</p>
+      <p><strong>Result:</strong> Developed a functional metronome with an audible buzzer and visual LED beat indicators, adjustable tempo, and selectable rhythm patterns. PCB is on its way!</p>
+      <p><strong>Enclosure:</strong> SolidWorks enclosure designed by <a class="link" href="https://github.com/jordanlin0603/Jordan-s-Metronome-Casing-">Jordan Lin</a>.</p>
+    </div>
+    <div class="d-metro">
+      <h3 class="d-sub">Morgan's Metronome, browser edition</h3>
+      <div class="metro-wrap">
+      <div class="metro" data-ui aria-label="Working copy of Morgan's Metronome">
+        <div class="lcd" aria-live="polite">
+          <div class="lcd-line" id="lcd1"></div>
+          <div class="lcd-line" id="lcd2"></div>
+        </div>
+        <div class="metro-controls">
+          <button class="key" id="m-start" type="button"><span class="cap" aria-hidden="true"></span>Start/stop</button>
+          <button class="key" id="m-pattern" type="button"><span class="cap" aria-hidden="true"></span>Beat pattern</button>
+          <span class="led" id="m-led" aria-hidden="true"></span>
+          <label class="pot">
+            <span>BPM adjust</span>
+            <input id="m-bpm" type="range" min="40" max="180" step="5" value="120">
+          </label>
+        </div>
+      </div>
+      <p class="metro-note">Browser version of the firmware: 40–180 BPM, accented first beat, 2–7 beat patterns.</p>
+    </div>
+    </div>
+    <div class="d-gallery"><figure><img src="images/full/met-breadboard.webp" width="1024" height="767" alt="Metronome, breadboard" loading="lazy"><figcaption>Metronome, breadboard</figcaption></figure>
+<figure><img src="images/full/met-display.webp" width="1592" height="1012" alt="Running at 180 BPM" loading="lazy"><figcaption>Running at 180 BPM</figcaption></figure>
+<figure><img src="images/full/met-3d-top.webp" width="1117" height="710" alt="Metronome shield, 3D" loading="lazy"><figcaption>Metronome shield, 3D</figcaption></figure>
+<figure><img src="images/full/met-3d-bottom.webp" width="1002" height="646" alt="Shield underside" loading="lazy"><figcaption>Shield underside</figcaption></figure>
+<figure><img src="images/full/met-sch.webp" width="1442" height="832" alt="Metronome schematic" loading="lazy"><figcaption>Metronome schematic</figcaption></figure>
+<figure><img src="images/full/met-pcb.webp" width="951" height="782" alt="Shield layout, KiCad" loading="lazy"><figcaption>Shield layout, KiCad</figcaption></figure>
+<figure><img src="images/full/met-gerber-front.webp" width="990" height="802" alt="Gerber, front" loading="lazy"><figcaption>Gerber, front</figcaption></figure>
+<figure><img src="images/full/met-gerber-back.webp" width="991" height="802" alt="Gerber, back" loading="lazy"><figcaption>Gerber, back</figcaption></figure>
+<figure><img src="images/full/met-case-front.webp" width="943" height="880" alt="Enclosure, front" loading="lazy"><figcaption>Enclosure, front</figcaption></figure>
+<figure><img src="images/full/met-case-birds.webp" width="1522" height="706" alt="Enclosure, from above" loading="lazy"><figcaption>Enclosure, from above</figcaption></figure>
+<figure><img src="images/full/met-case-angle.webp" width="913" height="857" alt="Enclosure, right angle" loading="lazy"><figcaption>Enclosure, right angle</figcaption></figure></div>
+  </div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
