@@ -206,6 +206,62 @@
         </tbody>
       </table>
     </div>
+    <section class="d-section">
+      <h3 class="d-sub">Design requirements</h3>
+      <div class="d-table-wrap">
+        <table class="t-spec">
+          <tbody>
+            <tr><th scope="row">Tractive system voltage</th><td>588 V</td></tr>
+            <tr><th scope="row">FSAE insulation criterion</th><td>250 Ω/V</td></tr>
+            <tr><th scope="row">Critical insulation resistance</th><td>588 V × 250 Ω/V = 147 kΩ</td></tr>
+            <tr><th scope="row">TSMP protection resistor (in the car)</th><td>15 kΩ, in series with the box</td></tr>
+            <tr><th scope="row">Connections</th><td>HV+/HV− TSMP and chassis / LV−</td></tr>
+            <tr><th scope="row">Test positions</th><td>Open, PASS, WARNING, TECH FAIL, hard short</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="d-section">
+      <h3 class="d-sub">Resistor networks</h3>
+      <p class="d-lede">Each fault position is a chain of ten 2512 resistors in series from its HV input to the chassis connector (J3). The hard short position is a direct wire, so only the car's 15 kΩ TSMP resistor is in the path. Resistance values shown are external to the vehicle.</p>
+      <div class="d-table-wrap">
+        <table>
+          <caption>Calculations from the schematic, at 588 V</caption>
+          <thead><tr><th scope="col">Position</th><th scope="col">Total resistance</th><th scope="col">Current</th><th scope="col">Power per resistor</th><th scope="col">Power, whole chain</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">PASS</th><td>10 × 27 kΩ + 15 kΩ = 285 kΩ</td><td>2.06 mA</td><td>0.115 W</td><td>1.15 W</td></tr>
+            <tr><th scope="row">WARNING</th><td>10 × 47 kΩ + 15 kΩ = 485 kΩ</td><td>1.21 mA</td><td>0.0691 W</td><td>0.691 W</td></tr>
+            <tr><th scope="row">TECH FAIL</th><td>10 × 6.04 kΩ + 15 kΩ = 75.4 kΩ</td><td>7.80 mA</td><td>0.367 W</td><td>3.67 W</td></tr>
+            <tr><th scope="row">Hard short</th><td>0 Ω external + 15 kΩ TSMP</td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="d-section">
+      <h3 class="d-sub">Parts list</h3>
+      <div class="d-table-wrap">
+        <table>
+          <thead><tr><th scope="col">Part</th><th scope="col">Value</th><th scope="col">Part number</th><th scope="col">Qty</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">PASS chain resistors (R1–R10)</th><td>27 kΩ, 2512</td><td>RC2512FK-0727KL</td><td>10</td></tr>
+            <tr><th scope="row">WARNING chain resistors (R11–R20)</th><td>47 kΩ, 2512</td><td>RC2512FK-0747KL</td><td>10</td></tr>
+            <tr><th scope="row">TECH FAIL chain resistors (R21–R30)</th><td>6.04 kΩ, 2512</td><td>CRCW25126K04FKEG</td><td>10</td></tr>
+            <tr><th scope="row">HV input jacks (J1, J2, J4, J5)</th><td>Red</td><td>73096-2</td><td>4</td></tr>
+            <tr><th scope="row">Chassis / LV− jack (J3)</th><td>Black</td><td>73096-0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="d-section">
+      <h3 class="d-sub">Next steps</h3>
+      <ul class="d-list">
+        <li>Physical testing on the car after the PCB has been printed.</li>
+      </ul>
+    </section>
+
     <div class="d-gallery"><figure><img src="images/full/imd-sch-altium.webp" width="1800" height="942" alt="IMD schematic in Altium" loading="lazy"><figcaption>IMD schematic in Altium</figcaption></figure>
 <figure><img src="images/full/imd-3d.webp" width="1690" height="946" alt="IMD test box, 3D" loading="lazy"><figcaption>IMD test box, 3D</figcaption></figure>
 <figure><img src="images/full/imd-2d.webp" width="1132" height="877" alt="IMD test box, layout" loading="lazy"><figcaption>IMD test box, layout</figcaption></figure>
@@ -292,6 +348,11 @@
         </tbody>
       </table>
     </div>
+    </section>
+
+    <section class="d-section d-pair">
+      <figure class="d-figure"><img src="images/full/buck-ripple-chart.webp" width="1106" height="502" alt="Bar chart of simulated ripple: reference 35.138 mV, v1 45.722 mV, v2 23.639 mV" loading="lazy"><figcaption>Simulated peak-to-peak ripple by design, 8–10 ms at 15 V in and a 5 Ω load</figcaption></figure>
+      <figure class="d-figure"><img src="images/full/buck-vout-compare.webp" width="1174" height="1068" alt="LTspice output voltage waveforms for the reference, v1 and v2 on the same axis" loading="lazy"><figcaption>Output voltage ripple: reference, v1 and v2 (same time interval and y-axis, 4.98–5.04 V)</figcaption></figure>
     </section>
 
     <section class="d-section">
@@ -385,6 +446,121 @@
       <p class="metro-note">Browser version of the firmware: 40–180 BPM, accented first beat, 2–7 beat patterns.</p>
     </div>
     </div>
+    <section class="d-section">
+      <h3 class="d-sub">Features</h3>
+      <ul class="d-list d-cols">
+        <li>Adjustable 40–180 BPM</li>
+        <li>5 BPM increments using a 10k potentiometer</li>
+        <li>Start/Stop button</li>
+        <li>2–7 beat pattern selection</li>
+        <li>Accented first beat</li>
+        <li>16x2 LCD display</li>
+        <li>LED beat indicator</li>
+        <li>Passive buzzer</li>
+        <li>Custom 2-layer Arduino Uno shield PCB</li>
+      </ul>
+    </section>
+
+    <section class="d-section">
+      <h3 class="d-sub">Development</h3>
+      <div class="d-body d-body-tight">
+        <p>The project started as a simple buzzer and LED metronome.</p>
+        <p>I originally used <code>delay()</code> for timing, but testing against a reference metronome showed that the BPM was inaccurate. I replaced this with <code>millis()</code>-based timing so the beat interval could be tracked more reliably.</p>
+        <p>I also replaced button-based BPM control with a potentiometer. Since the analog input was too sensitive, I rounded the BPM to 5 BPM increments.</p>
+        <p>After finishing the breadboard prototype I recreated the circuit in KiCad, ran ERC/DRC checks, selected and measured component footprints, routed the PCB, added a bottom GND plane and generated Gerber files.</p>
+      </div>
+    </section>
+
+    <section class="d-section d-split">
+      <div>
+        <h3 class="d-sub">Firmware</h3>
+        <p class="d-lede">The beat is scheduled with <code>millis()</code>, so the loop never blocks and the buttons and potentiometer stay responsive. Excerpt from <a class="link" href="https://github.com/morganwang7777-ux/Morgan-s-Metronome-v1.0/blob/main/firmware/MorgansMetronome.ino">MorgansMetronome.ino</a>:</p>
+        <pre class="d-code"><code>void loop() {
+  int potValue = analogRead(A5);
+  int newBpm = map(potValue, 0, 1023, 40, 180);
+  newBpm = ((newBpm + 2) / 5) * 5;   // round to 5 BPM steps
+  ...
+  if (running) {
+    unsigned long currentTime = millis();
+    if (currentTime - lastBeat &gt;= beatInterval) {
+      lastBeat += beatInterval;
+      currentBeat++;
+      if (currentBeat &gt;= patternLength) currentBeat = 0;
+      digitalWrite(8, HIGH);
+      if (currentBeat == 0) tone(9, 400);   // accented first beat
+      else tone(9, 200);
+      delay(60);
+      digitalWrite(8, LOW);
+      noTone(9);
+    }
+  }
+}</code></pre>
+      </div>
+      <div>
+        <h3 class="d-sub">Pin map</h3>
+        <div class="d-table-wrap">
+          <table>
+            <thead><tr><th scope="col">Arduino pin</th><th scope="col">Connected to</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">D10, D11</th><td>LCD RS, E</td></tr>
+              <tr><th scope="row">D12, D13, A0, A1</th><td>LCD D4–D7</td></tr>
+              <tr><th scope="row">D8</th><td>LED (220 Ω)</td></tr>
+              <tr><th scope="row">D9</th><td>Passive buzzer</td></tr>
+              <tr><th scope="row">D7</th><td>Start/stop button (input pull-up)</td></tr>
+              <tr><th scope="row">D3</th><td>Beat pattern button (input pull-up)</td></tr>
+              <tr><th scope="row">A5</th><td>10k potentiometer (tempo)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="d-section">
+      <h3 class="d-sub">Shield PCB</h3>
+      <div class="d-table-wrap">
+        <table>
+          <thead><tr><th scope="col">Part</th><th scope="col">Value</th><th scope="col">KiCad footprint</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">DS1</th><td>16x2 LCD (WC1602A)</td><td>Display:WC1602A</td></tr>
+            <tr><th scope="row">RV1</th><td>10k potentiometer</td><td>Alps RK163, horizontal</td></tr>
+            <tr><th scope="row">BZ1</th><td>Passive buzzer</td><td>Buzzer 12 × 9.5 mm</td></tr>
+            <tr><th scope="row">D1</th><td>5 mm LED</td><td>LED_D5.0mm</td></tr>
+            <tr><th scope="row">R1</th><td>220 Ω</td><td>Axial DIN0207</td></tr>
+            <tr><th scope="row">SW1, SW2</th><td>Pattern, start/stop</td><td>6 mm pushbutton</td></tr>
+            <tr><th scope="row">J1–J4</th><td>Arduino Uno headers</td><td>1×8, 1×10, 1×6, 1×8 pin headers, 2.54 mm</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-table-wrap">
+        <table class="t-spec">
+          <caption>Board, from the KiCad and Gerber files</caption>
+          <tbody>
+            <tr><th scope="row">Layers</th><td>2 (F.Cu, B.Cu)</td></tr>
+            <tr><th scope="row">Board size</th><td>110 × 90 mm</td></tr>
+            <tr><th scope="row">Thickness</th><td>1.6 mm</td></tr>
+            <tr><th scope="row">Track width</th><td>0.25 mm</td></tr>
+            <tr><th scope="row">Clearance</th><td>0.2 mm</td></tr>
+            <tr><th scope="row">Ground</th><td>Bottom layer GND pour</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="d-section">
+      <h3 class="d-sub">Enclosure</h3>
+      <p class="d-lede">The SolidWorks enclosure was designed by <a class="link" href="https://github.com/jordanlin0603/Jordan-s-Metronome-Casing-">Jordan Lin</a>. It has a 100 mm × 90 mm PCB mounting cavity, a separate 71 mm × 55 mm plate cavity, an M3 screw pivot system and two movable PCB retaining rails. The original single rail blocked the PCB controls during assembly testing, so it was revised into separate top and bottom rails.</p>
+    </section>
+
+    <section class="d-section">
+      <h3 class="d-sub">Next steps</h3>
+      <ul class="d-list">
+        <li>Tap tempo</li>
+        <li>More rhythm modes</li>
+        <li>Standalone PCB without the Arduino Uno</li>
+        <li>Improved buzzer volume control</li>
+      </ul>
+    </section>
+
     <div class="d-gallery"><figure><img src="images/full/met-breadboard.webp" width="1024" height="767" alt="Metronome, breadboard" loading="lazy"><figcaption>Metronome, breadboard</figcaption></figure>
 <figure><img src="images/full/met-display.webp" width="1592" height="1012" alt="Running at 180 BPM" loading="lazy"><figcaption>Running at 180 BPM</figcaption></figure>
 <figure><img src="images/full/met-3d-top.webp" width="1117" height="710" alt="Metronome shield, 3D" loading="lazy"><figcaption>Metronome shield, 3D</figcaption></figure>
