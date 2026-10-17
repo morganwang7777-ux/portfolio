@@ -227,13 +227,12 @@
       <p class="d-lede">Each fault position is a chain of ten 2512 resistors in series from its HV input to the chassis connector (J3). The hard short position is a direct wire, so only the car's 15 kΩ TSMP resistor is in the path. Resistance values shown are external to the vehicle.</p>
       <div class="d-table-wrap">
         <table>
-          <caption>Calculations from the schematic, at 588 V</caption>
-          <thead><tr><th scope="col">Position</th><th scope="col">Total resistance</th><th scope="col">Current</th><th scope="col">Power per resistor</th><th scope="col">Power, whole chain</th></tr></thead>
+          <thead><tr><th scope="col">Position</th><th scope="col">Chain in the box</th><th scope="col">With the 15 kΩ TSMP resistor</th></tr></thead>
           <tbody>
-            <tr><th scope="row">PASS</th><td>10 × 27 kΩ + 15 kΩ = 285 kΩ</td><td>2.06 mA</td><td>0.115 W</td><td>1.15 W</td></tr>
-            <tr><th scope="row">WARNING</th><td>10 × 47 kΩ + 15 kΩ = 485 kΩ</td><td>1.21 mA</td><td>0.0691 W</td><td>0.691 W</td></tr>
-            <tr><th scope="row">TECH FAIL</th><td>10 × 6.04 kΩ + 15 kΩ = 75.4 kΩ</td><td>7.80 mA</td><td>0.367 W</td><td>3.67 W</td></tr>
-            <tr><th scope="row">Hard short</th><td>0 Ω external + 15 kΩ TSMP</td><td></td><td></td><td></td></tr>
+            <tr><th scope="row">PASS</th><td>10 × 27 kΩ = 270 kΩ</td><td>285 kΩ</td></tr>
+            <tr><th scope="row">WARNING</th><td>10 × 47 kΩ = 470 kΩ</td><td>485 kΩ</td></tr>
+            <tr><th scope="row">TECH FAIL</th><td>10 × 6.04 kΩ = 60.4 kΩ</td><td>75 kΩ</td></tr>
+            <tr><th scope="row">Hard short</th><td>0 Ω, direct wire</td><td>15 kΩ</td></tr>
           </tbody>
         </table>
       </div>
