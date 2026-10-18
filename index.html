@@ -161,7 +161,7 @@
     <figure class="d-hero"><img src="images/full/tel-build.webp" width="1740" height="1120" alt="ESP32, OLED and potentiometer on a breadboard, powered from a USB power bank"></figure>
     <div class="d-meta"><p class="meta-when">Prototype for the TCU redesign · Oct 2026</p><ul class="chips" aria-label="Tools and teams"><li class="chip"><img class="wide" src="images/logos/uwfe.webp" width="75" height="20" alt="">UW Formula Electric</li><li class="chip"><img src="images/logos/espressif.svg" width="20" height="20" alt="">ESP32</li><li class="chip"><img src="images/logos/cplusplus.svg" width="20" height="20" alt="">C++</li><li class="chip"><img src="images/logos/python.svg" width="20" height="20" alt="">Python</li><li class="chip"><img src="images/logos/sql.svg" width="20" height="20" alt="">SQL</li><li class="chip"><img src="images/logos/sqlite.svg" width="20" height="20" alt="">SQLite</li></ul></div>
     <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/ESP32-Wireless-Telemetry">View on GitHub</a></p>
-    <ul class="stats"><li><span class="stat-n">18</span><span class="stat-l">range test runs, about 8,300 packets</span></li><li><span class="stat-n">≤ 0.4%</span><span class="stat-l">packet loss at most positions up to 15 m</span></li><li><span class="stat-n">42.7%</span><span class="stat-l">average loss at 10 m behind a closed door</span></li><li><span class="stat-n">5.8 s</span><span class="stat-l">longest dropout</span></li></ul>
+    <ul class="stats"><li><span class="stat-n">18</span><span class="stat-l">range test runs, about 8,300 packets</span></li><li><span class="stat-n">≤ 0.4%</span><span class="stat-l">packet loss at most positions up to 15 m</span></li><li><span class="stat-n">42.7%</span><span class="stat-l">of all packets lost at 10 m behind a closed door</span></li><li><span class="stat-n">5.8 s</span><span class="stat-l">longest dropout</span></li></ul>
     <div class="d-body wh-grid">
       <div class="wh"><p class="wh-label">What</p><p class="wh-text">The previous UW Formula Electric TCU sent vehicle data over a cellular modem and SIM card, which added a monthly cost and was unreliable at racetracks. Before comparing non-cellular options on paper, I built a small Wi-Fi prototype to get real data on how far a low-cost link can go before data is lost, and whether it fails gradually or in bursts.</p></div>
       <div class="wh"><p class="wh-label">How</p><p class="wh-text">An ESP32 reads a potentiometer standing in for a throttle sensor, shows live status on an I2C OLED, and sends about <strong class="num">17.5</strong> UDP packets per second. A Python logger on the laptop stores every packet in SQLite. Each packet carries a sequence number, so lost packets show up as gaps. I tested <strong class="num">6</strong> conditions, <strong class="num">3</strong> runs of <strong class="num">30 s</strong> each, and used SQL queries and matplotlib to analyze them.</p></div>
@@ -171,7 +171,7 @@
     <div class="d-table-wrap">
       <table>
         <caption>Range test results, 3 runs of 30 s per test</caption>
-        <thead><tr><th scope="col">Test</th><th scope="col">Avg signal (RSSI)</th><th scope="col">Avg packet loss</th><th scope="col">Range across 3 runs</th><th scope="col">Longest dropout</th></tr></thead>
+        <thead><tr><th scope="col">Test</th><th scope="col">Avg signal (RSSI)</th><th scope="col">% of all packets lost</th><th scope="col">Range across 3 runs</th><th scope="col">Longest dropout</th></tr></thead>
         <tbody>
           <tr><th scope="row">2 m</th><td>-64.7 dBm</td><td>0.4%</td><td>0 to 1.2%</td><td>0.36 s</td></tr>
           <tr><th scope="row">5 m</th><td>-75.8 dBm</td><td>0.1%</td><td>0 to 0.2%</td><td>0.13 s</td></tr>
@@ -183,7 +183,7 @@
       </table>
     </div>
     <section class="d-section d-pair">
-      <figure class="d-figure"><img src="images/full/tel-loss.webp" width="1600" height="900" alt="Bar chart of average packet loss by test, with the best to worst run range for each" loading="lazy"><figcaption>Packet loss by distance, average of 3 runs</figcaption></figure>
+      <figure class="d-figure"><img src="images/full/tel-loss.webp" width="1600" height="900" alt="Bar chart of packet loss by test, as a percentage of all packets across 3 runs, with the best to worst run range for each" loading="lazy"><figcaption>Packet loss by distance, % of all packets lost across 3 runs</figcaption></figure>
       <figure class="d-figure"><img src="images/full/tel-dropouts.webp" width="1600" height="900" alt="Packets received per second in the worst run, showing seconds with no packets" loading="lazy"><figcaption>Worst run, second by second: losses come in bursts</figcaption></figure>
     </section>
     <details class="d-more">
