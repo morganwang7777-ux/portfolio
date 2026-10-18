@@ -127,12 +127,14 @@
     <div class="d-meta"><p class="meta-when">Prototype for the TCU redesign · Oct 2026</p><ul class="chips" aria-label="Tools and teams"><li class="chip"><img class="wide" src="images/logos/uwfe.webp" width="75" height="20" alt="">UW Formula Electric</li><li class="chip"><img src="images/logos/espressif.svg" width="20" height="20" alt="">ESP32</li><li class="chip"><img src="images/logos/cplusplus.svg" width="20" height="20" alt="">C++</li><li class="chip"><img src="images/logos/python.svg" width="20" height="20" alt="">Python</li><li class="chip"><img src="images/logos/sql.svg" width="20" height="20" alt="">SQL</li><li class="chip"><img src="images/logos/sqlite.svg" width="20" height="20" alt="">SQLite</li></ul></div>
     <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/ESP32-Wireless-Telemetry">View on GitHub</a></p>
     <ul class="stats"><li><span class="stat-n">18</span><span class="stat-l">range test runs, about 8,300 packets</span></li><li><span class="stat-n">≤ 0.4%</span><span class="stat-l">packet loss at most positions up to 15 m</span></li><li><span class="stat-n">42.7%</span><span class="stat-l">of all packets lost at 10 m behind a closed door</span></li><li><span class="stat-n">5.8 s</span><span class="stat-l">longest dropout</span></li></ul>
+    <h3 class="d-sub d-sub-gap">Overview</h3>
     <div class="d-body wh-grid">
       <div class="wh"><p class="wh-label">What</p><p class="wh-text">The previous UW Formula Electric TCU sent vehicle data over a cellular modem and SIM card, which added a monthly cost and was unreliable at racetracks. Before comparing non-cellular options on paper, I built a small Wi-Fi prototype to get real data on how far a low-cost link can go before data is lost, and whether it fails gradually or in bursts.</p></div>
       <div class="wh"><p class="wh-label">How</p><p class="wh-text">An ESP32 reads a potentiometer standing in for a throttle sensor, shows live status on an I2C OLED, and sends about <strong class="num">17.5</strong> UDP packets per second. A Python logger on the laptop stores every packet in SQLite. Each packet carries a sequence number, so lost packets show up as gaps. I tested <strong class="num">6</strong> conditions, <strong class="num">3</strong> runs of <strong class="num">30 s</strong> each, and used SQL queries and matplotlib to analyze them.</p></div>
       <div class="wh"><p class="wh-label">Result</p><p class="wh-text">Loss stayed at <strong class="num">0.4%</strong> or less at most positions up to <strong class="num">15 m</strong>, but reached <strong class="num">12%</strong> at one 10 m spot and <strong class="num">42.7%</strong> behind a closed door. Losses came in bursts of up to <strong class="num">5.8 s</strong>, and loss rose sharply once the signal fell below about <strong class="num">-80 dBm</strong>.</p></div>
       <div class="wh"><p class="wh-label">What it means for the TCU</p><p class="wh-text">Basic Wi-Fi with an on-board antenna is far short of racetrack range. The new TCU needs a radio built for range, such as LoRa or a 900 MHz link, an external antenna mounted high on the car, and a buffer that stores data during dropouts and resends it.</p></div>
     </div>
+    <h3 class="d-sub d-sub-gap">Range test results</h3>
     <div class="d-table-wrap">
       <table>
         <caption>Range test results, 3 runs of 30 s per test</caption>
@@ -241,6 +243,7 @@ GROUP BY r.id;</code></pre>
       </div>
     </details>
 
+    <h3 class="d-sub d-sub-gap">Photos</h3>
     <div class="d-gallery"><figure><img src="images/full/tel-build.webp" width="1740" height="1120" alt="Prototype on a power bank, joining Wi-Fi" loading="lazy"><figcaption>Prototype on a power bank, joining Wi-Fi</figcaption></figure>
 <figure><img src="images/full/tel-oled.webp" width="1600" height="973" alt="Throttle percentage on the OLED" loading="lazy"><figcaption>Throttle percentage on the OLED</figcaption></figure>
 <figure><img src="images/full/tel-range.webp" width="1350" height="1400" alt="Range test at 2 m, laptop and hotspot in the background" loading="lazy"><figcaption>Range test at 2 m, laptop and hotspot behind</figcaption></figure>
@@ -261,6 +264,7 @@ GROUP BY r.id;</code></pre>
     <div class="d-meta"><p class="meta-when">Sep – Oct 2026</p><ul class="chips" aria-label="Tools and teams"><li class="chip"><img class="wide" src="images/logos/uwfe.webp" width="75" height="20" alt="">UW Formula Electric</li><li class="chip"><img src="images/logos/altium.svg" width="20" height="20" alt="">Altium Designer</li><li class="chip">Safety Analysis</li><li class="chip">High Voltage Electronics</li></ul></div>
     <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/IMD-Test-Box-UWFE">View on GitHub</a></p>
     <ul class="stats"><li><span class="stat-n">588 V</span><span class="stat-l">tractive system</span></li><li><span class="stat-n">147 kΩ</span><span class="stat-l">critical insulation threshold</span></li><li><span class="stat-n">4</span><span class="stat-l">fault states: pass, warning, tech fail, hard short</span></li><li><span class="stat-n">30</span><span class="stat-l">resistors in three chains</span></li></ul>
+    <h3 class="d-sub d-sub-gap">Overview</h3>
     <div class="d-body wh-grid">
       <div class="wh"><p class="wh-label">What</p><p class="wh-text">Developing a passive insulation monitoring fault injection test box for the Formula Electric vehicle, interfacing through the HV+/HV- Tractive System Measuring Points (TSMP) and chassis reference for controlled test conditions.</p></div>
       <div class="wh"><p class="wh-label">How</p><p class="wh-text">Created Altium Designer schematics and resistor networks, accounting for the <strong class="num">15 kOhm</strong> TSMP protection resistance. No single resistor met both the power and voltage ratings at <strong class="num">588 V</strong>, so I split each fault path into a 10-resistor series chain, keeping every 2512 resistor under 0.4 W and 60 V. The test positions, target fault resistances and expected IMD responses come from a chart provided by the electrical team leads, and I designed the box to meet them.</p></div>
@@ -281,6 +285,7 @@ GROUP BY r.id;</code></pre>
         </div>
       </div>
     </section>
+    <h3 class="d-sub d-sub-gap">Test conditions</h3>
     <div class="d-table-wrap">
       <table>
         <caption>Test conditions and vehicle response, from the chart provided by the UWFE electrical team leads</caption>
@@ -348,6 +353,7 @@ GROUP BY r.id;</code></pre>
       </div>
     </details>
 
+    <h3 class="d-sub d-sub-gap">Photos</h3>
     <div class="d-gallery"><figure><img src="images/full/imd-sch-altium.webp" width="1800" height="942" alt="IMD schematic in Altium" loading="lazy"><figcaption>IMD schematic in Altium</figcaption></figure>
 <figure><img src="images/full/imd-3d.webp" width="1690" height="946" alt="IMD test box, 3D" loading="lazy"><figcaption>IMD test box, 3D</figcaption></figure>
 <figure><img src="images/full/imd-2d.webp" width="1132" height="877" alt="IMD test box, layout" loading="lazy"><figcaption>IMD test box, layout</figcaption></figure>
@@ -367,6 +373,7 @@ GROUP BY r.id;</code></pre>
     <div class="d-meta"><p class="meta-when">Design task · Sep – Oct 2026</p><ul class="chips" aria-label="Tools and teams"><li class="chip"><img src="images/logos/ltspice.svg" width="20" height="20" alt="">LTspice</li><li class="chip"><img src="images/logos/altium.svg" width="20" height="20" alt="">Altium Designer</li><li class="chip"><img src="images/logos/digikey.svg" width="20" height="20" alt="">DigiKey</li><li class="chip">PCB Design</li></ul></div>
     <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/5V-DC-DC-Buck-Converter">View on GitHub</a></p>
     <ul class="stats stats-3"><li><span class="stat-n">23.6 mVpp</span><span class="stat-l">output ripple (v2)</span></li><li><span class="stat-n">48.3%</span><span class="stat-l">less ripple than v1</span></li><li><span class="stat-n">41.4 × 23.6 mm</span><span class="stat-l">two layer SMD board</span></li></ul>
+    <h3 class="d-sub d-sub-gap">Overview</h3>
     <div class="d-body wh-grid">
       <div class="wh"><p class="wh-label">What</p><p class="wh-text">Designed a compact <strong class="num">10-15 V</strong> input to regulated <strong class="num">5 V</strong>, <strong class="num">1 A</strong> switching buck converter using the LT1375 for a low voltage power supply design task.</p></div>
       <div class="wh"><p class="wh-label">How</p><p class="wh-text">Selected a <strong class="num">15 uH</strong> inductor, Schottky freewheeling diode, input/output capacitors, and resistive feedback components using datasheets and calculations. Simulated switching behavior and component trade offs in LTspice.</p></div>
@@ -507,6 +514,7 @@ GROUP BY r.id;</code></pre>
       </div>
     </details>
 
+    <h3 class="d-sub d-sub-gap">Photos</h3>
     <div class="d-gallery"><figure><img src="images/full/buck-3d-top.webp" width="907" height="536" alt="Buck converter, v2 board" loading="lazy"><figcaption>Buck converter, v2 board</figcaption></figure>
 <figure><img src="images/full/buck-3d-bottom.webp" width="1017" height="565" alt="Buck converter, underside" loading="lazy"><figcaption>Buck converter, underside</figcaption></figure>
 <figure><img src="images/full/buck-2d-top.webp" width="917" height="527" alt="Buck, top copper" loading="lazy"><figcaption>Buck, top copper</figcaption></figure>
@@ -533,6 +541,7 @@ GROUP BY r.id;</code></pre>
     <div class="d-meta"><p class="meta-when">Personal project · Jul – Sep 2026</p><ul class="chips" aria-label="Tools and teams"><li class="chip"><img src="images/logos/arduino.svg" width="20" height="20" alt="">Arduino UNO</li><li class="chip"><img src="images/logos/cplusplus.svg" width="20" height="20" alt="">C++</li><li class="chip"><img src="images/logos/kicad.svg" width="20" height="20" alt="">KiCad</li><li class="chip">PCB Design</li><li class="chip">Embedded Systems</li></ul></div>
     <p class="d-git"><a class="button" href="https://github.com/morganwang7777-ux/Morgan-s-Metronome-v1.0">View on GitHub</a></p>
     <ul class="stats"><li><span class="stat-n">40–180</span><span class="stat-l">BPM, in steps of 5</span></li><li><span class="stat-n">2–7</span><span class="stat-l">beat patterns</span></li><li><span class="stat-n">16×2</span><span class="stat-l">LCD display</span></li><li><span class="stat-n">2 layer</span><span class="stat-l">Arduino UNO shield in KiCad</span></li></ul>
+    <h3 class="d-sub d-sub-gap">Overview</h3>
     <div class="d-body wh-grid">
       <div class="wh"><p class="wh-label">What</p><p class="wh-text">Built an Arduino UNO based digital metronome after finding myself getting distracted using my phone while practicing saxophone. Designed it to help maintain a consistent rhythm, featuring adjustable <strong class="num">40–180 BPM</strong> tempo, selectable beat patterns, pushbutton controls, a potentiometer, and a 16×2 LCD.</p></div>
       <div class="wh"><p class="wh-label">How</p><p class="wh-text">Programmed the timing and user interface in C++. Used millis() based timing to schedule beats so the tempo does not drift; the loop only pauses for the 60 ms beep, so the tempo and button controls stay responsive. Prototyped and debugged the circuit on a breadboard before designing a custom Arduino UNO shield PCB in KiCad to integrate the components.</p></div>
@@ -664,6 +673,7 @@ GROUP BY r.id;</code></pre>
       </div>
     </details>
 
+    <h3 class="d-sub d-sub-gap">Photos</h3>
     <div class="d-gallery"><figure><img src="images/full/met-breadboard.webp" width="1024" height="767" alt="Metronome, breadboard" loading="lazy"><figcaption>Metronome, breadboard</figcaption></figure>
 <figure><img src="images/full/met-display.webp" width="1592" height="1012" alt="Running at 180 BPM" loading="lazy"><figcaption>Running at 180 BPM</figcaption></figure>
 <figure><img src="images/full/met-3d-top.webp" width="1117" height="710" alt="Metronome shield, 3D" loading="lazy"><figcaption>Metronome shield, 3D</figcaption></figure>

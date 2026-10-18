@@ -228,3 +228,58 @@ document.querySelectorAll('.sheet .frame').forEach((f) => {
   f.classList.add('is-link');
   f.addEventListener('click', () => openProject(id));
 });
+
+// Contents sidebar in each write-up: one link per heading, jumps there and
+// opens "Full design details" first if the heading is folded inside it.
+document.querySelectorAll('.sheet-dialog').forEach((d) => {
+  const inner = d.querySelector('.d-inner');
+  const head = inner.querySelector('.d-head');
+  const heads = [...inner.querySelectorAll('.d-sub')];
+  if (!heads.length) return;
+  const layout = document.createElement('div');
+  layout.className = 'd-layout';
+  const toc = document.createElement('nav');
+  toc.className = 'd-toc';
+  toc.setAttribute('aria-label', 'On this page');
+  const list = document.createElement('ul');
+  const content = document.createElement('div');
+  content.className = 'd-content';
+  [...inner.children].forEach((el) => { if (el !== head) content.appendChild(el); });
+  const links = heads.map((h, i) => {
+    if (!h.id) h.id = d.id + '-s' + i;
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const fold = h.closest('details');
+      if (fold) fold.open = true;
+      h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    li.appendChild(a);
+    list.appendChild(li);
+    return a;
+  });
+  toc.appendChild(list);
+  layout.append(toc, content);
+  inner.appendChild(layout);
+  // On narrow screens the contents bar sticks just under the title bar
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(() => d.style.setProperty('--d-head-h', head.offsetHeight + 'px')).observe(head);
+  }
+  // Highlight the section being read: the last heading that has reached the top
+  let current = -1;
+  const mark = () => {
+    const line = parseFloat(getComputedStyle(heads[0]).scrollMarginTop) + 24;
+    let i = 0;
+    heads.forEach((h, j) => { if (h.offsetParent && h.getBoundingClientRect().top <= line) i = j; });
+    if (i === current) return;
+    current = i;
+    links.forEach((l, j) => l.classList.toggle('is-current', j === i));
+    if (toc.scrollWidth > toc.clientWidth) toc.scrollTo({ left: links[i].offsetLeft - 16, behavior: 'smooth' });
+  };
+  d.addEventListener('scroll', mark, { passive: true });
+  d.addEventListener('toggle', mark, true);
+  mark();
+});
