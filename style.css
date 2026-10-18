@@ -686,14 +686,14 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
 }
 
 /* Skills sit in the opening card, so the card sets the hero's height */
-.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px clamp(24px, 3vw, 48px); }
-.skills-grid dt { font-size: var(--step-lead); font-weight: 500; letter-spacing: -0.01em; }
-.skills-grid dd .chips { margin-top: 12px; gap: 8px; }
-.skills-grid .chip { min-height: 38px; padding: 6px 12px; gap: 8px; font-size: var(--step-body); }
-.skills-grid .chip img { width: 20px; height: 20px; }
-@media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr; } }
-@media (max-width: 640px) { .skills-grid .chip { min-height: 34px; font-size: 0.9375rem; } }
-.skills-sec { padding-bottom: 0; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px clamp(20px, 2.5vw, 40px); }
+.skills-grid dt { font-size: var(--step-body); font-weight: 500; }
+.skills-grid dd .chips { margin-top: 8px; gap: 6px; }
+.skills-grid .chip { min-height: 32px; padding: 4px 10px; gap: 7px; font-size: 0.9375rem; }
+.skills-grid .chip img { width: 18px; height: 18px; }
+@media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr; gap: 16px; } }
+.skills-sec { padding-top: clamp(56px, 6vw, 88px); padding-bottom: 0; }
+.skills-sec .section-title { margin-bottom: clamp(20px, 2.5vw, 32px); }
 @media (min-width: 641px) {
   .hero { height: auto; min-height: calc(100svh - 56px); padding: 48px 0; }
   .sheet { position: absolute; inset: 0; }
@@ -741,3 +741,16 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
   .pcard-img { aspect-ratio: 5 / 2; }
   .pcard-desc { font-size: 1rem; }
 }
+
+/* Opening card: a fixed-width box centred on the screen, text centred inside */
+.hero { display: grid; place-items: center; }
+.hero .panel {
+  position: relative; top: auto; left: auto; margin: 0;
+  width: min(640px, calc(100vw - 2 * var(--m)));
+  align-items: center; text-align: center; padding: clamp(24px, 3vw, 36px);
+}
+.hero .panel-line { justify-content: center; text-align: left; }
+.hero .panel-about { max-width: 52ch; }
+.hero .panel-links { justify-content: center; }
+@media (max-width: 640px) { .hero .panel .button { width: auto; } }
+.skills-sec + .work { padding-top: clamp(64px, 7vw, 104px); }
