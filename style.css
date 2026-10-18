@@ -567,6 +567,11 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
 .topbar-links a:hover { background: var(--surface); }
 .topbar-links .topbar-cta { background: var(--accent); color: var(--accent-ink); margin-left: 6px; }
 .topbar-links .topbar-cta:hover { background: var(--accent-strong); }
+.topbar-name[aria-current="page"], .topbar-links a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.tabbed [hidden] { display: none !important; }
+@media (prefers-reduced-motion: no-preference) {
+  .tabbed main > section:not([hidden]), .tabbed .hero:not([hidden]) { animation: rise 500ms var(--ease-out) both; }
+}
 .topbar-menu { display: none; }
 .hero { margin-top: 56px; height: calc(100svh - 56px); }
 .section, .project { scroll-margin-top: 72px; }

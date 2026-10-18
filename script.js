@@ -63,10 +63,47 @@ window.addEventListener('popstate', () => {
   if (current && current.id !== 'd-' + id) { openId = null; current.close(); }
   if (projects.includes(id)) openProject(id, false);
 });
+// Tabs: the menu shows one section at a time instead of one long page
+const tabs = {
+  top: document.getElementById('top'),
+  projects: document.getElementById('projects'),
+  experience: document.getElementById('experience'),
+  contact: document.getElementById('contact'),
+};
+const showTab = (name) => {
+  for (const [key, el] of Object.entries(tabs)) el.hidden = key !== name;
+  document.querySelectorAll('.topbar a[href^="#"]').forEach((a) => {
+    if (a.getAttribute('href') === '#' + name) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
+  });
+  window.scrollTo({ top: 0, behavior: 'instant' });
+};
+document.body.classList.add('tabbed');
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  const name = a.getAttribute('href').slice(1);
+  if (!(name in tabs)) return;
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (tabs[name].hidden) {
+      showTab(name);
+      history.pushState({ tab: name }, '', name === 'top' ? location.pathname : '#' + name);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  });
+});
+window.addEventListener('popstate', () => {
+  const name = location.hash.slice(1) || 'top';
+  if (name in tabs && tabs[name].hidden) showTab(name);
+});
+
 const initial = location.hash.slice(1);
 if (projects.includes(initial)) {
-  history.replaceState(null, '', location.pathname);
+  history.replaceState(null, '', '#projects');
+  showTab('projects');
   openProject(initial);
+} else {
+  showTab(initial in tabs ? initial : 'top');
 }
 
 // Menu bar: collapsible list of links on phones
