@@ -228,3 +228,47 @@ document.querySelectorAll('.sheet .frame').forEach((f) => {
   f.classList.add('is-link');
   f.addEventListener('click', () => openProject(id));
 });
+
+// Scroll motion: the image wall falls behind at different speeds, project strips
+// slide sideways, section titles slide in from the left, and a bar under the menu shows progress
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const root = document.documentElement;
+  const cols = [...document.querySelectorAll('.sheet .col')];
+  const speeds = [0.38, 0.16, 0.46, 0.22, 0.42, 0.12];
+  const panel = document.querySelector('.panel');
+  const tracks = [...document.querySelectorAll('.strip-track')];
+  const titles = [...document.querySelectorAll('.section-title')];
+  const figure = document.querySelector('.list-figure img');
+  const phone = matchMedia('(max-width: 640px)');
+  let queued = false;
+
+  // Where an element sits in the viewport: 0 entering at the bottom, 1 leaving at the top
+  const progress = (el) => {
+    const b = el.getBoundingClientRect();
+    return Math.min(1, Math.max(0, (innerHeight - b.top) / (innerHeight + b.height)));
+  };
+
+  const update = () => {
+    queued = false;
+    const y = scrollY;
+    const max = root.scrollHeight - innerHeight;
+    root.style.setProperty('--scroll', max > 0 ? (y / max).toFixed(4) : '0');
+
+    if (y < innerHeight * 1.5) {
+      cols.forEach((c, i) => { c.style.translate = `0 ${(y * speeds[i]).toFixed(1)}px`; });
+      if (!phone.matches) panel.style.translate = `0 ${(y * 0.25).toFixed(1)}px`;
+    }
+    tracks.forEach((t) => {
+      t.style.translate = phone.matches ? '' : `${(-progress(t) * 260).toFixed(1)}px 0`;
+    });
+    titles.forEach((t) => {
+      t.style.translate = `${(-Math.max(0, 1 - progress(t) * 2.5) * 60).toFixed(1)}px 0`;
+    });
+    if (figure && !phone.matches) figure.style.translate = `0 ${((0.5 - progress(figure)) * 40).toFixed(1)}px`;
+  };
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  addEventListener('scroll', queue, { passive: true });
+  addEventListener('resize', queue);
+  update();
+})();

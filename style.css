@@ -704,3 +704,12 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
 @media (prefers-reduced-motion: reduce) {
   .d-gallery figure:hover, .d-figure:hover, .d-hero img:hover { transform: none; }
 }
+
+/* Scroll progress, drawn along the bottom of the menu bar */
+@media (prefers-reduced-motion: no-preference) {
+  .topbar::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: var(--accent); transform: scaleX(var(--scroll, 0)); transform-origin: 0 50%;
+  }
+  .sheet .col, .panel, .strip-track, .section-title, .list-figure img { will-change: translate; }
+}
