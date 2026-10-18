@@ -758,3 +758,6 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
 .skills-sec .section-title, .skills-sec dt { color: var(--paper); }
 .work { background-color: var(--paper); }
 .skills-sec, .work { background-image: url("images/grain.png"); background-size: 240px 240px; }
+.f-contact { font-weight: 500; }
+.f-contact a { color: var(--bg); text-decoration-color: rgba(221, 214, 198, 0.4); }
+.footer { scroll-margin-top: 56px; }
