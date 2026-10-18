@@ -462,15 +462,15 @@ GROUP BY r.id;</code></pre>
             <tbody>
               <tr><th scope="row">Duty cycle</th><td>5 V / (15 V × 0.9)</td><td>37%</td></tr>
               <tr><th scope="row">Inductor range</th><td>From datasheet</td><td>3–20 µH</td></tr>
-              <tr><th scope="row">Inductor ripple current</th><td>(15 V − 5 V) × 0.37 / (440 kHz × 18 µH*)</td><td>0.468 A</td></tr>
-              <tr><th scope="row">Max output the IC supports</th><td>1.50 A − 0.468 A / 2</td><td>1.266 A</td></tr>
-              <tr><th scope="row">Peak switch current</th><td>1 A + 0.468 A / 2</td><td>1.234 A</td></tr>
+              <tr><th scope="row">Inductor ripple current</th><td>(15 V − 5 V) × 0.37 / (440 kHz × 15 µH*)</td><td>0.561 A</td></tr>
+              <tr><th scope="row">Max output the IC supports</th><td>1.50 A − 0.561 A / 2</td><td>1.220 A</td></tr>
+              <tr><th scope="row">Peak switch current</th><td>1 A + 0.561 A / 2</td><td>1.280 A</td></tr>
               <tr><th scope="row">Diode current</th><td>1 A × (1 − 0.37)</td><td>0.63 A</td></tr>
               <tr><th scope="row">Diode power</th><td>0.63 A × 0.5 V</td><td>0.315 W</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="d-note">* I could not find an 18 µH inductor that fit the requirements, so I picked a 15 µH part from the calculated inductor range of 5–20 µH.</p>
+        <p class="d-note">* My hand calculations used 18 µH, but I could not find an 18 µH inductor that fit the requirements, so I picked a 15 µH part from the calculated inductor range of 5–20 µH. The values in this table were recalculated for 15 µH.</p>
       </div>
       <figure class="d-figure"><img src="images/full/buck-calcs.webp" width="918" height="1313" alt="Handwritten calculations: duty cycle, inductor ripple current, maximum output current, peak switch current and diode current" loading="lazy"><figcaption>Hand calculations</figcaption></figure>
     </section>
