@@ -162,8 +162,8 @@ button, input, textarea { font: inherit; color: inherit; }
 .strip-track { display: flex; width: max-content; height: 100%; }
 .strip-track img { height: 220px; width: auto; max-width: none; margin-right: 8px; background: var(--surface); }
 @media (prefers-reduced-motion: no-preference) {
-  .strip-track { animation: slide 45s linear infinite; animation-play-state: paused; }
-  .project:hover .strip-track, .strip-row:focus-visible .strip-track { animation-play-state: running; }
+  .strip-track { animation: slide 45s linear infinite; }
+  .strip-row:hover .strip-track, .strip-row:focus-visible .strip-track { animation-play-state: paused; }
 }
 @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .summary { margin-top: 24px; max-width: 60ch; font-size: var(--step-lead); line-height: 1.35; }
