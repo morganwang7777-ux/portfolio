@@ -454,6 +454,7 @@ td { font-variant-numeric: tabular-nums; }
 .d-figure { background: var(--paper); }
 .d-figure img { width: 100%; }
 .d-figure figcaption { font-size: var(--step-small); padding: 8px 10px; color: var(--muted); background: var(--surface); }
+.d-note { margin-top: 10px; font-size: var(--step-small); color: var(--muted); }
 .d-body-tight { margin-top: 0; }
 .d-list { display: grid; gap: 8px; padding-left: 1.2em; list-style: disc; }
 .t-spec { min-width: 0; max-width: 640px; }
