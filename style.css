@@ -687,18 +687,26 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
 
 /* Skills sit in the opening card, so the card sets the hero's height */
 .panel-skills { margin-top: 20px; width: 100%; gap: 12px; }
-.panel-skills dt { font-size: var(--step-small); color: var(--bg); opacity: 0.8; }
-.panel-skills dd .chips { margin-top: 6px; gap: 6px; }
-.panel-skills .chip { min-height: 30px; padding: 4px 10px; gap: 6px; }
-.panel-skills .chip img { width: 16px; height: 16px; }
+.panel-skills dt { font-size: var(--step-body); color: var(--bg); }
+.panel-skills dd .chips { margin-top: 8px; gap: 6px; }
+.panel-skills .chip { min-height: 38px; padding: 6px 12px; gap: 8px; font-size: var(--step-body); }
+.panel-skills .chip img { width: 22px; height: 22px; }
 @media (min-width: 641px) {
   .hero { height: auto; min-height: calc(100svh - 56px); padding: 48px 0; }
   .sheet { position: absolute; inset: 0; }
   .panel { position: relative; top: auto; }
 }
 @media (min-width: 901px) {
-  .panel { left: calc(var(--m) + var(--colw) + var(--gap)); width: calc(4 * var(--colw) + 3 * var(--gap)); }
+  .panel { left: calc(var(--m) + 1.5 * (var(--colw) + var(--gap))); width: calc(3 * var(--colw) + 2 * var(--gap)); padding: 24px; }
 }
 @media (max-width: 640px) {
   .hero { height: auto; min-height: calc(100svh - 56px); padding: 24px var(--m); }
+}
+@media (min-width: 641px) {
+  .hero { padding: 32px 0; }
+  .panel .panel-line { margin-top: 12px; }
+  .panel .panel-about { margin-top: 12px; line-height: 1.45; }
+  .panel-skills { margin-top: 16px; gap: 10px; }
+  .panel .button { margin-top: 20px; }
+  .panel-links { padding-top: 18px; }
 }
