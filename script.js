@@ -18,7 +18,7 @@ if ('IntersectionObserver' in window) {
 
 // Project write-ups open in a full-screen dialog. Each one gets its own history
 // entry, so the browser's Back button closes it instead of leaving the site.
-const projects = ['imd', 'buck', 'metronome'];
+const projects = ['telemetry', 'imd', 'buck', 'metronome'];
 let openId = null;
 const openProject = (id, push = true) => {
   const d = document.getElementById('d-' + id);
@@ -38,10 +38,23 @@ document.querySelectorAll('.sheet-dialog').forEach((d) => {
   d.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => d.close()));
   d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
   d.addEventListener('close', () => {
-    const id = openId;
+    const id = d.id.slice(2);
+    // Already switched to another project with a Next button
+    if (openId !== id) return;
     openId = null;
     // Closed with the button or Esc: step back over the entry we pushed.
-    if (id && history.state && history.state.project === id) history.back();
+    if (history.state && history.state.project === id) history.back();
+  });
+});
+// Next project: swap write-ups in place, so Back still returns to the page
+document.querySelectorAll('[data-next]').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    const current = a.closest('.sheet-dialog');
+    const id = a.dataset.next;
+    if (!openProject(id, false)) return;
+    e.preventDefault();
+    current.close();
+    history.replaceState({ project: id }, '', '#' + id);
   });
 });
 window.addEventListener('popstate', () => {
@@ -209,9 +222,9 @@ document.querySelectorAll('.viewer-btn').forEach((btn) => {
 // Clicking a picture in the opening image wall opens that picture's project
 document.querySelectorAll('.sheet .frame').forEach((f) => {
   const img = f.querySelector('img');
-  const m = img && img.getAttribute('src').match(/\/(buck|imd|met)-/);
+  const m = img && img.getAttribute('src').match(/\/(buck|imd|met|tel)-/);
   if (!m) return;
-  const id = m[1] === 'met' ? 'metronome' : m[1];
+  const id = { met: 'metronome', tel: 'telemetry' }[m[1]] || m[1];
   f.classList.add('is-link');
   f.addEventListener('click', () => openProject(id));
 });

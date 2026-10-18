@@ -588,7 +588,7 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
 .d-more summary > span:first-of-type { font-size: var(--step-lead); font-weight: 500; }
 .d-more-note { color: var(--muted); font-size: var(--step-small); }
 .d-more-body > .d-section:first-child { margin-top: 40px; }
-.d-end { margin-top: 56px; }
+.d-end { margin-top: 56px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 
 @media (max-width: 640px) {
   .hero { margin-top: 56px; height: auto; }
