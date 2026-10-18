@@ -283,3 +283,20 @@ document.querySelectorAll('.sheet-dialog').forEach((d) => {
   d.addEventListener('toggle', mark, true);
   mark();
 });
+
+// Light / dark switch
+{
+  const btn = document.querySelector('.theme-toggle');
+  const root = document.documentElement;
+  const sync = () => {
+    const dark = root.dataset.theme === 'dark';
+    btn.setAttribute('aria-pressed', String(dark));
+    btn.querySelector('span').textContent = dark ? 'Light mode' : 'Dark mode';
+  };
+  btn.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    sync();
+  });
+  sync();
+}
