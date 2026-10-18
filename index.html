@@ -319,16 +319,17 @@ GROUP BY r.id;</code></pre>
     <div class="d-table-wrap">
       <table>
         <caption>Test conditions and vehicle response, from the chart provided by the UWFE electrical team leads</caption>
-        <thead><tr><th scope="col">Position</th><th scope="col">Target fault</th><th scope="col">Box resistor</th><th scope="col">Worst-case power</th><th scope="col">Expected IMD response</th></tr></thead>
+        <thead><tr><th scope="col">Position</th><th scope="col">Target fault</th><th scope="col">Box resistor</th><th scope="col">Worst-case power</th><th scope="col">Power at 588 V§</th><th scope="col">Expected IMD response</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Open / off</th><td>Disconnected</td><td>Open circuit</td><td>0 W</td><td>Normal operation, safe for connecting leads</td></tr>
-          <tr><th scope="row">Pass</th><td>≈ 285 kΩ</td><td>270 kΩ</td><td>0.85 W</td><td>Car stays on, well above 147 kΩ</td></tr>
-          <tr><th scope="row">Warning</th><td>≈ 500 kΩ</td><td>470 – 485 kΩ</td><td>0.48 W</td><td>Warning over CAN, car stays on</td></tr>
-          <tr><th scope="row">Tech fail</th><td>75 kΩ (50% margin)</td><td>60 kΩ</td><td>3.7 W</td><td>Mandatory trip: OK_hs drops, shutdown circuit opens within 30 s</td></tr>
-          <tr><th scope="row">Hard short</th><td>15 kΩ (car's own resistor)</td><td>0 Ω, direct wire</td><td>0 W in box (23 W in car)</td><td>Immediate trip, HV to chassis short</td></tr>
+          <tr><th scope="row">Open / off</th><td>Disconnected</td><td>Open circuit</td><td>0 W</td><td>0 W</td><td>Normal operation, safe for connecting leads</td></tr>
+          <tr><th scope="row">Pass</th><td>≈ 285 kΩ</td><td>270 kΩ</td><td>0.85 W</td><td>1.15 W</td><td>Car stays on, well above 147 kΩ</td></tr>
+          <tr><th scope="row">Warning</th><td>≈ 500 kΩ</td><td>470 – 485 kΩ</td><td>0.48 W</td><td>0.69 W</td><td>Warning over CAN, car stays on</td></tr>
+          <tr><th scope="row">Tech fail</th><td>75 kΩ (50% margin)</td><td>60 kΩ</td><td>3.7 W</td><td>3.67 W</td><td>Mandatory trip: OK_hs drops, shutdown circuit opens within 30 s</td></tr>
+          <tr><th scope="row">Hard short</th><td>15 kΩ (car's own resistor)</td><td>0 Ω, direct wire</td><td>0 W in box (23 W in car)</td><td>0 W in box (23.0 W in car)</td><td>Immediate trip, HV to chassis short</td></tr>
         </tbody>
       </table>
     </div>
+    <p class="d-note">§ I calculated this column myself at the 588 V maximum tractive system voltage, with the car's 15 kΩ TSMP resistor in series: P = (588 V ÷ (box resistor + 15 kΩ))² × box resistor. Warning uses the 470 kΩ chain. Each chain is ten resistors in series, so each resistor takes a tenth of this power, at most 0.37 W.</p>
     <details class="d-more">
       <summary><span>Full design details</span><span class="d-more-note">Design requirements, resistor networks and parts list</span></summary>
       <div class="d-more-body">
