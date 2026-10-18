@@ -514,7 +514,7 @@ GROUP BY r.id;</code></pre>
           <tbody>
             <tr><th scope="row">Buck regulator</th><td>LT1375, 1.5 A, 500 kHz</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/analog-devices-inc/LT1375CS8-PBF/891548">LT1375CS8#PBF</a></td></tr>
             <tr><th scope="row">Inductor</th><td>15 µH</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/bourns-inc/SRP1038A-150M/4876660">Bourns SRP1038A-150M</a></td></tr>
-            <tr><th scope="row">Schottky diode</th><td>Freewheeling</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/panjit-international-inc/SS2040FL-R1-00001/14660034">Panjit SS2040FL-R1-00001</a></td></tr>
+            <tr><th scope="row">Schottky diode</th><td>Freewheeling‡</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/panjit-international-inc/SS2040FL-R1-00001/14660034">Panjit SS2040FL-R1-00001</a></td></tr>
             <tr><th scope="row">Boost diode</th><td>1N4148W</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/diodes-incorporated/1N4148W-7-F/814371">Diodes Inc. 1N4148W-7-F</a></td></tr>
             <tr><th scope="row">Input capacitor</th><td>22 µF</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/kemet/C1210C226M3RACTU/3317484">KEMET C1210C226M3RACTU</a></td></tr>
             <tr><th scope="row">Output capacitor</th><td>100 µF</td><td><a class="link" href="https://www.digikey.ca/en/products/detail/kemet/C1210C107M4PACTU/4437452">KEMET C1210C107M4PACTU</a></td></tr>
@@ -527,6 +527,7 @@ GROUP BY r.id;</code></pre>
           </tbody>
         </table>
       </div>
+      <p class="d-note">‡ I couldn't simulate the Panjit SS2040FL in LTspice, so the simulations use a 1N5818, which fits the requirements: a 30 V reverse rating against the 15 V maximum input, a 1 A average current rating against the 0.63 A diode current, and it is the catch diode suggested in the LT1375 datasheet.</p>
     </section>
 
     <section class="d-section">
