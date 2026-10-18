@@ -752,3 +752,9 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
 .hero .panel-about { max-width: 62ch; }
 @media (min-width: 641px) { .hero .panel { min-height: 460px; } }
 .skills-sec + .work { padding-top: clamp(64px, 7vw, 104px); }
+
+/* Each section gets its own colour band */
+.skills-sec { background-color: var(--ink); color: var(--bg); padding-bottom: clamp(56px, 6vw, 88px); }
+.skills-sec .section-title, .skills-sec dt { color: var(--paper); }
+.work { background-color: var(--paper); }
+.skills-sec, .work { background-image: url("images/grain.png"); background-size: 240px 240px; }
