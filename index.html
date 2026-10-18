@@ -309,8 +309,8 @@ GROUP BY r.id;</code></pre>
     <ul class="stats"><li><span class="stat-n">588 V</span><span class="stat-l">tractive system</span></li><li><span class="stat-n">147 kΩ</span><span class="stat-l">critical insulation threshold</span></li><li><span class="stat-n">4</span><span class="stat-l">fault states: pass, warning, tech fail, hard short</span></li><li><span class="stat-n">30</span><span class="stat-l">resistors in three chains</span></li></ul>
     <div class="d-body wh-grid">
       <div class="wh"><p class="wh-label">What</p><p class="wh-text">Developing a passive insulation monitoring fault injection test box for the Formula Electric vehicle, interfacing through the HV+/HV- Tractive System Measuring Points (TSMP) and chassis reference for controlled test conditions.</p></div>
-      <div class="wh"><p class="wh-label">How</p><p class="wh-text">Created Altium Designer schematics and resistor networks. Accounted for <strong class="num">15 kOhm</strong> TSMP protection resistance and evaluated a <strong class="num">588 V</strong> tractive system against the FSAE <strong class="num">250 Ohm/V</strong> insulation criterion.</p></div>
-      <div class="wh"><p class="wh-label">Result</p><p class="wh-text">Calculated a <strong class="num">147 kOhm</strong> critical insulation threshold and design target equivalent fault resistances of 285, 485, and <strong class="num">75 kOhm</strong>. Planned selection states include PASS, WARNING, TECH FAIL, and a hard short scenario. The design provides a repeatable method to investigate firmware reported warnings and vehicle shutdown responses.</p></div>
+      <div class="wh"><p class="wh-label">How</p><p class="wh-text">Created Altium Designer schematics and resistor networks. Accounted for <strong class="num">15 kOhm</strong> TSMP protection resistance and evaluated a <strong class="num">588 V</strong> tractive system against the FSAE <strong class="num">250 Ohm/V</strong> insulation criterion. The test positions, target fault resistances and expected IMD responses come from a chart provided by the electrical team leads, and I designed the box to meet them.</p></div>
+      <div class="wh"><p class="wh-label">Result</p><p class="wh-text">Calculated a <strong class="num">147 kOhm</strong> critical insulation threshold and built resistor networks for the leads' target equivalent fault resistances of 285, 485, and <strong class="num">75 kOhm</strong>. Planned selection states include PASS, WARNING, TECH FAIL, and a hard short scenario. The design provides a repeatable method to investigate firmware reported warnings and vehicle shutdown responses.</p></div>
       <div class="wh"><p class="wh-label">Next steps</p><p class="wh-text">Physical testing on the car after the PCB has been printed.</p></div>
     </div>
     <section class="d-section">
@@ -329,7 +329,7 @@ GROUP BY r.id;</code></pre>
     </section>
     <div class="d-table-wrap">
       <table>
-        <caption>Test conditions and vehicle response</caption>
+        <caption>Test conditions and vehicle response, from the chart provided by the UWFE electrical team leads</caption>
         <thead><tr><th scope="col">Position</th><th scope="col">Target fault</th><th scope="col">Box resistor</th><th scope="col">Worst-case power</th><th scope="col">Expected IMD response</th></tr></thead>
         <tbody>
           <tr><th scope="row">Open / off</th><td>Disconnected</td><td>Open circuit</td><td>0 W</td><td>Normal operation, safe for connecting leads</td></tr>
@@ -397,7 +397,7 @@ GROUP BY r.id;</code></pre>
 <figure><img src="images/full/imd-3d.webp" width="1690" height="946" alt="IMD test box, 3D" loading="lazy"><figcaption>IMD test box, 3D</figcaption></figure>
 <figure><img src="images/full/imd-2d.webp" width="1132" height="877" alt="IMD test box, layout" loading="lazy"><figcaption>IMD test box, layout</figcaption></figure>
 <figure><img src="images/full/imd-sch.webp" width="1372" height="896" alt="IMD resistor networks" loading="lazy"><figcaption>IMD resistor networks</figcaption></figure>
-<figure><img src="images/full/imd-table.webp" width="1027" height="735" alt="Test positions and response" loading="lazy"><figcaption>Test positions and response</figcaption></figure></div>
+<figure><img src="images/full/imd-table.webp" width="1027" height="735" alt="Test positions and response" loading="lazy"><figcaption>Test positions and response (chart from the electrical team leads)</figcaption></figure></div>
     <p class="d-end"><button class="button" type="button" data-close>← Back to projects</button><a class="button d-next" href="#buck" data-next="buck">Next project: 5 V DC-DC Buck Converter →</a></p>
   </div>
 </dialog>
