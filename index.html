@@ -576,7 +576,7 @@ GROUP BY r.id;</code></pre>
     <ul class="stats"><li><span class="stat-n">40–180</span><span class="stat-l">BPM, in steps of 5</span></li><li><span class="stat-n">2–7</span><span class="stat-l">beat patterns</span></li><li><span class="stat-n">16×2</span><span class="stat-l">LCD display</span></li><li><span class="stat-n">2 layer</span><span class="stat-l">Arduino UNO shield in KiCad</span></li></ul>
     <div class="d-body wh-grid">
       <div class="wh"><p class="wh-label">What</p><p class="wh-text">Built an Arduino UNO based digital metronome after finding myself getting distracted using my phone while practicing saxophone. Designed it to help maintain a consistent rhythm, featuring adjustable <strong class="num">40–180 BPM</strong> tempo, selectable beat patterns, pushbutton controls, a potentiometer, and a 16×2 LCD.</p></div>
-      <div class="wh"><p class="wh-label">How</p><p class="wh-text">Programmed the timing and user interface in C++. Used millis() based non blocking timing to schedule beats while keeping tempo and button controls responsive. Prototyped and debugged the circuit on a breadboard before designing a custom Arduino UNO shield PCB in KiCad to integrate the components.</p></div>
+      <div class="wh"><p class="wh-label">How</p><p class="wh-text">Programmed the timing and user interface in C++. Used millis() based timing to schedule beats so the tempo does not drift; the loop only pauses for the 60 ms beep, so the tempo and button controls stay responsive. Prototyped and debugged the circuit on a breadboard before designing a custom Arduino UNO shield PCB in KiCad to integrate the components.</p></div>
       <div class="wh"><p class="wh-label">Result</p><p class="wh-text">Developed a functional metronome with an audible buzzer and visual LED beat indicators, adjustable tempo, and selectable rhythm patterns. PCB is on its way!</p></div>
     </div>
     <div class="d-metro">
@@ -616,7 +616,7 @@ GROUP BY r.id;</code></pre>
     <section class="d-section d-split">
       <div>
         <h3 class="d-sub">Firmware</h3>
-        <p class="d-lede">The beat is scheduled with <code>millis()</code>, so the loop never blocks and the buttons and potentiometer stay responsive. Excerpt from <a class="link" href="https://github.com/morganwang7777-ux/Morgan-s-Metronome-v1.0/blob/main/firmware/MorgansMetronome.ino">MorgansMetronome.ino</a>:</p>
+        <p class="d-lede">The beat is scheduled with <code>millis()</code>, so the tempo does not drift. The loop only pauses for the 60 ms beep (<code>delay(60)</code> below), so the buttons and potentiometer stay responsive. Excerpt from <a class="link" href="https://github.com/morganwang7777-ux/Morgan-s-Metronome-v1.0/blob/main/firmware/MorgansMetronome.ino">MorgansMetronome.ino</a>:</p>
         <pre class="d-code"><code>void loop() {
   int potValue = analogRead(A5);
   int newBpm = map(potValue, 0, 1023, 40, 180);
