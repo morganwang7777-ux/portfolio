@@ -271,7 +271,7 @@ GROUP BY r.id;</code></pre>
       <h3 class="d-sub">Limitations</h3>
       <ul class="d-list">
         <li>Loss is counted between the first and last packet received, so a dropout at the very end of a run is not counted.</li>
-        <li>One building, one phone and one ESP32 board. Distances were measured by stride.</li>
+        <li>This was a single, controlled test that didn't account for other variables, and distances were estimated based on footstep size.</li>
         <li>RSSI is the ESP32's view of the phone's signal, not the other way round.</li>
       </ul>
     </section>
@@ -281,7 +281,7 @@ GROUP BY r.id;</code></pre>
       <ul class="d-list">
         <li>Repeat the range test with a LoRa module to compare against Wi-Fi.</li>
         <li>Buffer packets on the ESP32 and resend them after a dropout.</li>
-        <li>Add more sensors and move the circuit onto a KiCad PCB.</li>
+        <li>Add more sensors and move the circuit onto a PCB.</li>
       </ul>
     </section>
       </div>
