@@ -637,6 +637,7 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
 
 /* Project write-ups: key numbers and What / How / Result cards */
 .stats { margin-top: 40px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; max-width: 1200px; }
+.stats-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .stats li { background: var(--field-1); color: var(--field-1-ink); padding: 20px; display: grid; gap: 6px; align-content: start; }
 .stat-n { font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.375rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1; }
 .stat-l { font-size: var(--step-small); line-height: 1.35; color: rgba(255, 255, 255, 0.85); }
@@ -645,7 +646,7 @@ body, .list, .contact, .footer, .sheet-dialog, .d-head { background-image: url("
 .wh-label { font-size: var(--step-lead); font-weight: 500; letter-spacing: -0.01em; color: var(--accent); }
 .wh-text { font-size: var(--step-body); line-height: 1.55; max-width: 60ch; }
 .wh-text .num { font-weight: 500; color: var(--ink); background: var(--paper); padding: 0 4px; white-space: nowrap; }
-@media (max-width: 900px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stats-3 li:last-child { grid-column: 1 / -1; } }
 @media (max-width: 640px) { .stats li { padding: 14px; } .wh { padding: 18px; } }
 .rail { top: 80px; }
 /* Test: no highlight boxes, whole text in the heavier weight */
